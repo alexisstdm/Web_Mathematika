@@ -1,0 +1,27 @@
+<HTML>
+	<HEAD>
+		<SCRIPT TYPE="text/javascript" SRC="javascript_pruebas/evaluador_expresiones.js">
+		</SCRIPT>
+		<SCRIPT TYPE="text/javascript" SRC="javascript_pruebas/biseccion.js">
+		</SCRIPT>
+	</HEAD>
+	<BODY>
+		<SCRIPT TYPE="text/javascript">
+			function on_click(){
+				var funcion = document.formularioBiseccion.funcion.value;
+				var cotaInferior = new Number(document.formularioBiseccion.cotaInferior.value);
+				var cotaSuperior = new Number(document.formularioBiseccion.cotaSuperior.value);
+				document.formularioBiseccion.resultado.value = new String(
+						calculaCeros(funcion, cotaInferior, cotaSuperior));
+			}
+		</SCRIPT>
+		<H3>C&aacutelculo de ceros de funciones</H3>
+		<FORM ID="formulario" NAME="formularioBiseccion">
+			Funci&oacuten : <INPUT TYPE="text" ID="funcion" NAME="funcion" MAXLENGTH="50" SIZE="50"><BR/>
+			Cota Inferior : <INPUT TYPE="text" ID="cotaInferior" NAME="cotaInferior" MAXLENGTH="20" SIZE="20"><BR/>
+			Cota Superior : <INPUT TYPE="text" ID="cotaSuperior" NAME="cotaSuperior" MAXLENGTH="20" SIZE="20"><BR/>
+			<INPUT TYPE="button" ID="calcular" NAME="calcular" VALUE="Calcular" ONCLICK="on_click();">
+			<INPUT TYPE="text" ID="resultado" NAME="resultado" MAXLENGTH="50" SIZE="50" DISABLED>
+		</FORM>
+	</BODY>
+</HTML>
