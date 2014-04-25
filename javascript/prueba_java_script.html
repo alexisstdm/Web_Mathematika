@@ -1,0 +1,24 @@
+<HTML>
+	<HEAD>
+		<SCRIPT TYPE="text/javascript" SRC="evaluador_expresiones.js">
+		</SCRIPT>
+		<SCRIPT TYPE="text/javascript" SRC="biseccion.js">
+		</SCRIPT>
+	</HEAD>
+	<BODY>
+		<SCRIPT TYPE="text/javascript">
+
+			var cadenaTexto = "";
+			var expresion = "";
+			var cotaInferior;
+			var cotaSuperior;
+
+			expresion = prompt("Introducir expresión matemática");
+			cotaInferior = new Number(prompt("Introducir cota inferior"));
+			cotaSuperior = new Number(prompt("Introducir cota superior"));
+			cadenaTexto = "El primer cero de la funci&ocuten es " + calculaCeros(expresion , cotaInferior, cotaSuperior);
+			alert(cadenaTexto);
+
+		</SCRIPT>
+	</BODY>
+</HTML>
