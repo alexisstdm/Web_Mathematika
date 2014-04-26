@@ -4,7 +4,7 @@ function busca_cambio_signo(funcion, a, b, n) {
 		return "ERROR";
 	} 
 	else {
-		if (evaluaExpresion(funcion,"x",a)*evaluaExpresion(funcion,"x",b)<=0) {
+		if (evaluaExpresion(funcion,"@x",a)*evaluaExpresion(funcion,"@x",b)<=0) {
 			return a;
 		}
 		else {
@@ -23,7 +23,7 @@ function busca_cambio_signo(funcion, a, b, n) {
 					return izquierda;
 				}
 				else {
-					if (evaluaExpresion(funcion,"x",izquierda)*evaluaExpresion(funcion,"x",a)<=0) {
+					if (evaluaExpresion(funcion,"@x",izquierda)*evaluaExpresion(funcion,"@x",a)<=0) {
 						return izquierda;
 					}
 					else {
@@ -52,13 +52,13 @@ function calculaCeros(funcion, cotaInferior, cotaSuperior) {
 	}
 
 	var f_medio = 0.0;
-	var f_inferior = evaluaExpresion(funcion, "x", inferior);
-	var f_superior = evaluaExpresion(funcion, "x", superior);
+	var f_inferior = evaluaExpresion(funcion, "@x", inferior);
+	var f_superior = evaluaExpresion(funcion, "@x", superior);
 
 	if (Math.abs(cotaSuperior-cotaInferior)<=ERROR) return contaInferior;
 
 	while (Math.abs(inferior-superior)>=ERROR) {
-		f_medio = evaluaExpresion(funcion, "x", inferior+(superior-inferior)/2.0);
+		f_medio = evaluaExpresion(funcion, "@x", inferior+(superior-inferior)/2.0);
 		if (f_medio*f_inferior<0) {
 			superior = inferior+(superior-inferior)/2.0;
 		}
@@ -90,8 +90,8 @@ function calculaCeros(funcion, cotaInferior, cotaSuperior) {
 				}
 			}
 		}
-		f_inferior = evaluaExpresion(funcion, "x", inferior);
-		f_superior = evaluaExpresion(funcion, "x", superior);
+		f_inferior = evaluaExpresion(funcion, "@x", inferior);
+		f_superior = evaluaExpresion(funcion, "@x", superior);
 	}
 	return inferior+(superior-inferior)/2.0;
 }
