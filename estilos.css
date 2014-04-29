@@ -1,0 +1,20 @@
+#caja_principal {
+	background: #00BFFF;
+	width: 960px;
+	margin: 15px auto;
+	text-align: left;
+	font: 16px arial;
+}
+
+#cabecera {
+	background: #00005F;
+	border: 1px solid #999999;
+	padding: 5px;
+	color: white;
+	font: bold 16px arial;
+}
+
+aside {
+		font: 12px arial;
+		color: #005F00;
+}
