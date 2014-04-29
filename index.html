@@ -12,54 +12,56 @@
 		<link rel="stylesheet" href="estilos.css">
 	</HEAD>
 	<BODY>
-		<HEADER id="cabecera">
-			<h1>M&eacutetodo de la Bisecci&oacuten</h1>
-		</HEADER>
-		<SECTION id="caja_principal">
-			<SCRIPT TYPE="text/javascript">
-				function on_click(){
+		<DIV id="caja_principal">
+			<HEADER id="cabecera">
+				<h1>M&eacutetodo de la Bisecci&oacuten</h1>
+			</HEADER>
+			<SECTION id="area_principal">
+				<SCRIPT TYPE="text/javascript">
+					function on_click(){
 					var funcion = document.formularioBiseccion.funcion.value;
 					var cotaInferior = new Number(document.formularioBiseccion.cotaInferior.value);
 					var cotaSuperior = new Number(document.formularioBiseccion.cotaSuperior.value);
 					document.formularioBiseccion.resultado.value = new String(
 							calculaCeros(funcion, cotaInferior, cotaSuperior));
-				}
-			</SCRIPT>
-			<H3>C&aacutelculo de ceros de funciones</H3>
-			<FORM ID="formulario" NAME="formularioBiseccion">
-				Funci&oacuten : <INPUT TYPE="text" ID="funcion" NAME="funcion" MAXLENGTH="50" SIZE="50"><BR/>
-				Cota Inferior : <INPUT TYPE="text" ID="cotaInferior" NAME="cotaInferior" MAXLENGTH="20" SIZE="20"><BR/>
-				Cota Superior : <INPUT TYPE="text" ID="cotaSuperior" NAME="cotaSuperior" MAXLENGTH="20" SIZE="20"><BR/>
-				<INPUT TYPE="button" ID="calcular" NAME="calcular" VALUE="Calcular" ONCLICK="on_click();">
-				<INPUT TYPE="text" ID="resultado" NAME="resultado" MAXLENGTH="50" SIZE="50" DISABLED>
-			</FORM>
-			<BR>
-			<BR>
-		</SECTION>
-		<ASIDE>
-			<DETAILS>
-				<SUMMARY>Ayuda</SUMMARY>
-					<BLOCKQUOTE>La funci&oacuten para la que se calcula el cero ha de ser 
+					}
+				</SCRIPT>
+				<H3>C&aacutelculo de ceros de funciones</H3>
+				<FORM ID="formulario" NAME="formularioBiseccion">
+					Funci&oacuten : <INPUT TYPE="text" ID="funcion" NAME="funcion" MAXLENGTH="50" SIZE="50"><BR/>
+					Cota Inferior : <INPUT TYPE="text" ID="cotaInferior" NAME="cotaInferior" MAXLENGTH="20" SIZE="20"><BR/>
+					Cota Superior : <INPUT TYPE="text" ID="cotaSuperior" NAME="cotaSuperior" MAXLENGTH="20" SIZE="20"><BR/>
+					<INPUT TYPE="button" ID="calcular" NAME="calcular" VALUE="Calcular" ONCLICK="on_click();">
+					<INPUT TYPE="text" ID="resultado" NAME="resultado" MAXLENGTH="50" SIZE="50" DISABLED>
+				</FORM>
+				<BR>
+				<BR>
+			</SECTION>
+			<ASIDE>
+				<DETAILS>
+					<SUMMARY>Ayuda</SUMMARY>
+						<BLOCKQUOTE>La funci&oacuten para la que se calcula el cero ha de ser 
 							una expresi&oacuten matem&aacutetica
 							cuya variable independiente ser&aacute la x 	
 							(min&uacutescula). Para hacer referencia a 
 							funciones est&aacutendar utilizaremos su nombre del 
 							m&oacutedulo Math de javascript. Por ejemplo
 							Math.sin(x) o Math.pow(x,2.0).</BLOCKQUOTE>
-					<BLOCKQUOTE>La cota inferior es la parte inferior del intervalo de 
+						<BLOCKQUOTE>La cota inferior es la parte inferior del intervalo de 
 							b&uacutesqueda del cero de la funci&oacuten.</BLOCKQUOTE>
-					<BLOCKQUOTE>La cota superior es la parte superior del intervalo de 
+						<BLOCKQUOTE>La cota superior es la parte superior del intervalo de 
 							b&uacutesqueda del cero de la funci&oacuten.</BLOCKQUOTE>
-					<BLOCKQUOTE>Devolver&aacute ERROR si no localiza ceros entre las 
+						<BLOCKQUOTE>Devolver&aacute ERROR si no localiza ceros entre las 
 							cotas superior e inferior.</BLOCKQUOTE>
-			</DETAILS>
-			<BR>
-			<BR>
-		</ASIDE>
-		<FOOTER>
-			Alexis S&aacutenchez Tello de Meneses. 
-			<A HREF="http://es.linkedin.com/pub/alexis-sánchez-tello-de-meneses/1a/95/b3" target="_blank">Ver</A></BR>
-			<A HREF="https://github.com/alexisstdm/Web_Mathematika" target="_blank">gitHub</A>
-		</FOOTER>
+				</DETAILS>
+				<BR>
+				<BR>
+			</ASIDE>
+			<FOOTER>
+				Alexis S&aacutenchez Tello de Meneses. 
+				<A HREF="http://es.linkedin.com/pub/alexis-sánchez-tello-de-meneses/1a/95/b3" target="_blank">Ver</A></BR>
+				<A HREF="https://github.com/alexisstdm/Web_Mathematika" target="_blank">gitHub</A>
+			</FOOTER>
+		</DIV>
 	</BODY>
 </HTML>
