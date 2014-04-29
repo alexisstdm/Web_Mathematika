@@ -1,3 +1,7 @@
+body {
+	text-align: center;
+}
+
 #caja_principal {
 	background: #00BFFF;
 	width: 960px;
@@ -14,7 +18,37 @@
 	font: bold 16px arial;
 }
 
-aside {
-		font: 12px arial;
-		color: #005F00;
+h1 {
+	font: bold 24px verdana, arial; 
+}
+
+h2 {
+	font: bold 20px verdana, arial; 
+}
+
+h3 {
+	font: bold 20px verdana, arial; 
+}
+
+#area_principal {
+	float: left;
+	width: 560px;
+	margin: 20px;
+}
+
+#barra_lateral {
+	float: left;
+	width: 320px;
+	margin: 20px 0px;
+	padding: 20px;
+	font: 12px verdana, arial;
+	color: #004F00;
+	text-align: left;
+}
+
+#pie {
+	clear: both;
+	text-align: center;
+	padding: 20px;
+	border-top: 2px solid #999999;
 }
