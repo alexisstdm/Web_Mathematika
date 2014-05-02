@@ -1,83 +1,36 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <HTML lang="es">
 	<HEAD>
-		<SCRIPT TYPE="text/javascript" SRC="javascript/evaluador_expresiones.js">
-		</SCRIPT>
-		<SCRIPT TYPE="text/javascript" SRC="javascript/biseccion.js">
-		</SCRIPT>
-		<meta charset="utf-8">
-		<meta name="description" content="Calcula ceros de funciones metodo biseccion">
-		<meta name="keywords" content="cero, funcion, metodo, biseccion">
-		<title>Mathematika: Metodo Biseccion</title>
-		<link rel="stylesheet" href="estilos.css">
+		<meta characterset="utf-8">
+		<meta name="description" content="Web sobre matem&aacuteticas con algoritmos de c&aacutelculo num&eacuterico">
+		<meta name="keywords" content="Matem&aacutetica C&aacutelculo Num&eacuterico Papers Matem&aacuteticos Algoritmos">
+		<title>Mathematika</title>
+		<link rel="stylesheet" href="estilos_index.css">
 	</HEAD>
 	<BODY>
-		<DIV id="caja_principal">
-			<HEADER id="cabecera">
-				<h1>M&eacutetodo de la Bisecci&oacuten</h1>
-			</HEADER>
-			<SECTION id="area_principal">
-				<SCRIPT TYPE="text/javascript">
-					function on_click(){
-					var funcion = document.formularioBiseccion.funcion.value;
-					var cotaInferior = new Number(document.formularioBiseccion.cotaInferior.value);
-					var cotaSuperior = new Number(document.formularioBiseccion.cotaSuperior.value);
-					document.formularioBiseccion.resultado.value = new String(
-							calculaCeros(funcion, cotaInferior, cotaSuperior));
-					}
-				</SCRIPT>
-				<H3>C&aacutelculo de ceros de funciones</H3>
-				<FORM ID="formulario" NAME="formularioBiseccion">
-					<TABLE>
-						<TR>
-							<TD>Funci&oacuten :</TD>
-							<TD><INPUT TYPE="text" ID="funcion" 
-								NAME="funcion" MAXLENGTH="50" SIZE="50"></TD>
-						</TR>
-						<TR>
-							<TD>Cota Inferior :</TD>
-							<TD><INPUT TYPE="text" ID="cotaInferior" NAME="cotaInferior" MAXLENGTH="20"
-								SIZE="20"></TD>
-						</TR>
-						<TR>
-							<TD>Cota Superior :</TD>
-							<TD><INPUT TYPE="text" ID="cotaSuperior" NAME="cotaSuperior" MAXLENGTH="20"
-								SIZE="20"></TD>
-						</TR>
-					</TABLE>
-					<BR><BR>
-					<INPUT TYPE="button" ID="calcular" NAME="calcular" VALUE="Calcular" ONCLICK="on_click();">
-					<INPUT TYPE="text" ID="resultado" NAME="resultado" MAXLENGTH="50" SIZE="50" DISABLED>
-				</FORM>
-				<BR>
-				<BR>
-			</SECTION>
-			<ASIDE id="barra_lateral">
-				<DETAILS>
-					<SUMMARY>Ayuda</SUMMARY>
-						<BLOCKQUOTE>La funci&oacuten para la que se calcula el cero ha de ser 
-							una expresi&oacuten matem&aacutetica
-							cuya variable independiente ser&aacute la @x 	
-							(min&uacutescula). Para hacer referencia a 
-							funciones est&aacutendar utilizaremos su nombre del 
-							m&oacutedulo Math de javascript. Por ejemplo
-							Math.sin(@x) o Math.pow(@x,2.0).</BLOCKQUOTE>
-						<BLOCKQUOTE>La cota inferior es la parte inferior del intervalo de 
-							b&uacutesqueda del cero de la funci&oacuten.</BLOCKQUOTE>
-						<BLOCKQUOTE>La cota superior es la parte superior del intervalo de 
-							b&uacutesqueda del cero de la funci&oacuten.</BLOCKQUOTE>
-						<BLOCKQUOTE>Devolver&aacute ERROR si no localiza ceros entre las 
-							cotas superior e inferior.</BLOCKQUOTE>
-				</DETAILS>
-				<BR>
-				<BR>
-			</ASIDE>
-			<FOOTER id="pie">
-				Alexis S&aacutenchez Tello de Meneses. 
-				<A HREF="http://es.linkedin.com/pub/alexis-sánchez-tello-de-meneses/1a/95/b3" 
-					target="_blank">Ver perfil.</A>
-				<A HREF="https://github.com/alexisstdm/Web_Mathematika" target="_blank">Contribuir en gitHub</A>
-			</FOOTER>
-		</DIV>
+		<HEADER>
+			<H1>Mathematika</H1>
+			<H2>Algoritmos on-line de C&aacutelculo Num&eacuterico</H2>
+		</HEADER>
+		<NAV>
+			<ul>
+				<li><A HREF="index.html">Inicio</A></li>
+				<li><A HREF="articulos.html">Art&iacuteculos</A></li>
+				<li><A HREF="biseccion.html">Algoritmos</A></li>
+				<li><A HREF="referencias">Referencias</A></li>
+			</ul>
+		</NAV>
+		<SECTION>
+			<ARTICLE>
+				<HEADER>
+					<HGROUP>
+						<H1>Sobre Mathematika</H1>
+						<H2>C&aacutelculo Num&eacuterico</H2>
+					</HGROUP>
+				</HEADER>
+				<P>En este espacio alojaremos pequeñas aplicaciones que dar&aacuten soluci&oacuten a distintos 					problemas de c&aacutelculo numerico. Estos algoritmos de c&aacutelculo han sido desarrollados en 					JavaScript y aunque por supesto, el c&oacutedigo fuente est&aacute disponible a trav&eacutes de las 					herramientas de visualizaci&oacuten y depuraci&oacuten de cada explorador web, tambi&eacuten se 				suministrar&aacuten los enlaces a los repositorios GtiHub, donde estar&aacuten los proyectos
+				dispoinibles para que se puedan clonar y efectuar contribuciones al desarrollo de este espacio</P>
+			</ARTICLE>
+		</SECTION>
 	</BODY>
 </HTML>
