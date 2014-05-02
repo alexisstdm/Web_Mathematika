@@ -5,7 +5,7 @@ body {
 #menu {
 	background: #8F3F00;
 }
-
+	
 #menu li {
 		display: inline-block;
 		list-style: none;
@@ -43,22 +43,6 @@ h2 {
 
 h3 {
 	font: bold 20px verdana, arial; 
-}
-
-#area_principal {
-	float: left;
-	width: 560px;
-	margin: 20px;
-}
-
-#barra_lateral {
-	float: left;
-	width: 320px;
-	margin: 20px 0px;
-	padding: 20px;
-	font: 12px verdana, arial;
-	color: #004F00;
-	text-align: left;
 }
 
 #pie {
