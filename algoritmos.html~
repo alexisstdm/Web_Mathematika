@@ -56,10 +56,10 @@
 							HREF="integral.html">Integral Darboux</A></H3>
 					</HGROUP>
 				</HEADER>
-				<P>El m&eacutetodo de integraci&oacuten por sumas de Darboux aproxima el c&aacutelculo del &aacuterea 
-				comprendido por la curva de la funci&oacuten y el eje de abcisas, por rect&aacutengulos de  
-				altura el valor de la funci&oacuten en los puntos de la partici&oacuten del intervalo, y base
-				la longitud de los segmentos en que queda dividido el intervalo de integraci&oacuten.
+				<P>El método de integración por sumas de Darboux aproxima el cálculo del área 
+				comprendido por la curva de la función y el eje de abcisas, por rectángulos de  
+				altura el valor de la función en los puntos de la partición del intervalo, y base
+				la longitud de los segmentos en que queda dividido el intervalo de integración.
 				</P>
 			</ARTICLE>
 		</SECTION>
