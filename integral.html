@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<HTML lang="es">
+	<HEAD>
+		<SCRIPT TYPE="text/javascript" SRC="javascript/evaluador_expresiones.js">
+		</SCRIPT>
+		<SCRIPT TYPE="text/javascript" SRC="javascript/integral.js">
+		</SCRIPT>
+		<meta charset="utf-8">
+		<meta name="description" content="Calcula la integral definida de una funcion de una sola variable">
+		<meta name="keywords" content="integral, definida, funcion, suma, Darboux">
+		<title>Mathematika: C&aacutelculo de la Integral</title>
+		<link rel="stylesheet" href="estilos_index.css">
+	</HEAD>
+	<BODY>
+		<DIV id="caja_principal">
+			<HEADER id="cabecera">
+				<h1>C&aacutelculo de la integral</h1>
+			</HEADER>
+			<NAV id="menu">
+				<ul>
+					<li><A class="blanco" HREF="index.html">Inicio</A></li>
+					<li><A class="blanco" HREF="articulos.html">Art&iacuteculos</A></li>
+					<li><A class="blanco" HREF="algoritmos.html">Algoritmos</A></li>
+					<li><A class="blanco" HREF="referencias.html">Referencias</A></li>
+				</ul>
+			</NAV>
+			<SECTION id="area_principal">
+				<SCRIPT TYPE="text/javascript">
+					function on_click(){
+					var funcion = document.formularioIntegral.funcion.value;
+					var cotaInferior = new Number(document.formularioIntegral.cotaInferior.value);
+					var cotaSuperior = new Number(document.formularioIntegral.cotaSuperior.value);
+					document.formularioIntegral.resultado.value = new String(
+							integral(funcion, cotaInferior, cotaSuperior));
+					}
+				</SCRIPT>
+				<H3>C&aacutelculo de Integral Suma Darboux</H3>
+				<FORM ID="formulario" NAME="formularioIntegral">
+					<TABLE>
+						<TR>
+							<TD>Funci&oacuten :</TD>
+							<TD><INPUT TYPE="text" ID="funcion" 
+								NAME="funcion" MAXLENGTH="50" SIZE="50"></TD>
+						</TR>
+						<TR>
+							<TD>Cota Inferior :</TD>
+							<TD><INPUT TYPE="text" ID="cotaInferior" NAME="cotaInferior" MAXLENGTH="20"
+								SIZE="20"></TD>
+						</TR>
+						<TR>
+							<TD>Cota Superior :</TD>
+							<TD><INPUT TYPE="text" ID="cotaSuperior" NAME="cotaSuperior" MAXLENGTH="20"
+								SIZE="20"></TD>
+						</TR>
+					</TABLE>
+					<BR><BR>
+					<INPUT TYPE="button" ID="calcular" NAME="calcular" VALUE="Calcular" ONCLICK="on_click();">
+					<INPUT TYPE="text" ID="resultado" NAME="resultado" MAXLENGTH="50" SIZE="50" DISABLED>
+				</FORM>
+				<BR>
+				<BR>
+			</SECTION>
+			<ASIDE id="barra_lateral">
+				<DETAILS>
+					<SUMMARY>Ayuda</SUMMARY>
+						<BLOCKQUOTE>La funci&oacuten para la que se calcula la integral ha de ser 
+							una expresi&oacuten matem&aacutetica
+							cuya variable independiente ser&aacute la @x 	
+							(min&uacutescula). Para hacer referencia a 
+							funciones est&aacutendar utilizaremos su nombre del 
+							m&oacutedulo Math de javascript. Por ejemplo
+							Math.sin(@x) o Math.pow(@x,2.0).</BLOCKQUOTE>
+						<BLOCKQUOTE>La cota inferior es la parte inferior del intervalo de 
+							integraci&oacuten.</BLOCKQUOTE>
+						<BLOCKQUOTE>La cota superior es la parte superior del intervalo de 
+							integraci&oacuten.</BLOCKQUOTE>
+				</DETAILS>
+				<BR>
+				<BR>
+			</ASIDE>
+			<FOOTER id="pie">
+				Alexis S&aacutenchez Tello de Meneses. 
+				<A HREF="http://es.linkedin.com/pub/alexis-s%C3%A1nchez-tello-de-meneses/1a/95/b3" 
+					target="_blank">Ver perfil.</A>
+				<A HREF="https://github.com/alexisstdm/Web_Mathematika" target="_blank">Contribuir en gitHub</A>
+			</FOOTER>
+		</DIV>
+	</BODY>
+</HTML>
