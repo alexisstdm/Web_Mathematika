@@ -11,6 +11,25 @@ function integral_Darboux(funcion, a, b, n, tipo){
 	return suma;
 }
 
+function integral_Simpson_grado_2(funcion, a, b, n){
+	var suma = 0.0;
+	var h = 0.0;
+	var factor = 0;
+
+	if (n <= 0) n = 2;
+	if ((n % 2) != 0) n = n + 1;
+
+	h = (b - a) / n; 
+
+	for (var i = 0; i <= n; i++){
+		if ((i == 0) || (i == n)) factor = 1;
+		else factor = 2 + 2 * (i % 2);
+		suma = suma + evaluaExpresion(funcion, "@x", a + i * h) * factor;
+	}
+	
+	return suma * h * (1.0/3.0);
+}
+
 function integral(funcion, a, b){
 	var ERROR = 0.001;
 	var error_integral = 1.0;

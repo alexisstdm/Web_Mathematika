@@ -1,0 +1,27 @@
+<HTML>
+	<HEAD>
+		<SCRIPT TYPE="text/javascript" SRC="evaluador_expresiones.js">
+		</SCRIPT>
+		<SCRIPT TYPE="text/javascript" SRC="integral.js">
+		</SCRIPT>
+	</HEAD>
+	<BODY>
+		<SCRIPT TYPE="text/javascript">
+
+			var cadenaTexto = "";
+			var expresion = "";
+			var cotaInferior;
+			var cotaSuperior;
+
+			alert("Integral de X**2");
+			cotaInferior = new Number(prompt("Introducir cota inferior"));
+			cotaSuperior = new Number(prompt("Introducir cota superior"));
+			cadenaTexto = "El valor de la integral Darboux es  " + 
+					integral_Darboux("Math.pow(@x,2.0)", cotaInferior, cotaSuperior, 1000, "superior");
+			alert(cadenaTexto);
+			cadenaTexto = "El valor de la integral Simpson es  " + 
+					integral_Simpson_grado_2("Math.pow(@x,2.0)", cotaInferior, cotaSuperior, 1000);
+			alert(cadenaTexto);
+		</SCRIPT>
+	</BODY>
+</HTML>

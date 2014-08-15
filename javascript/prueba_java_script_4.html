@@ -1,0 +1,24 @@
+<HTML>
+	<HEAD>
+		<SCRIPT TYPE="text/javascript" SRC="evaluador_expresiones.js">
+		</SCRIPT>
+		<SCRIPT TYPE="text/javascript" SRC="integral.js">
+		</SCRIPT>
+		<SCRIPT TYPE="text/javascript" SRC="black_scholes.js">
+		</SCRIPT>
+	</HEAD>
+	<BODY>
+		<SCRIPT TYPE="text/javascript">
+
+			var cadenaTexto = "";
+			var expresion = "";
+			var valor;
+
+			alert("distribucion normal");
+			valor = new Number(prompt("Introducir valor de la x"));
+			cadenaTexto = "El valor de N(x) es  " + 
+					normal_dist(valor);
+			alert(cadenaTexto);
+		</SCRIPT>
+	</BODY>
+</HTML>

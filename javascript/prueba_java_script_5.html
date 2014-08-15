@@ -1,0 +1,34 @@
+<HTML>
+	<HEAD>
+		<SCRIPT TYPE="text/javascript" SRC="evaluador_expresiones.js">
+		</SCRIPT>
+		<SCRIPT TYPE="text/javascript" SRC="integral.js">
+		</SCRIPT>
+		<SCRIPT TYPE="text/javascript" SRC="black_scholes.js">
+		</SCRIPT>
+	</HEAD>
+	<BODY>
+		<SCRIPT TYPE="text/javascript">
+
+			var cadenaTexto = "";
+			var spot;
+			var strike;
+			var tiempo;
+			var volatilidad;
+			var rate;
+			var tipo;
+
+			alert("Precio Black Scholes");
+			spot = new Number(prompt("Spot"));
+			strike = new Number(prompt("Strike"));
+			tiempo = new Number(prompt("Time to Maturity"));
+			volatilidad = new Number(prompt("Volatility"));
+			rate = new Number(prompt("Rate"));
+			tipo = prompt("Type");
+			cadenaTexto = "The Price is  " + 
+					priceBlackScholes(spot, strike, tiempo, volatilidad, rate, tipo);
+			alert(cadenaTexto);
+
+		</SCRIPT>
+	</BODY>
+</HTML>
