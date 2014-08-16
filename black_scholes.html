@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<HTML lang="es">
+	<HEAD>
+		<SCRIPT TYPE="text/javascript" SRC="javascript/evaluador_expresiones.js">
+		</SCRIPT>
+		<SCRIPT TYPE="text/javascript" SRC="javascript/integral.js">
+		</SCRIPT>
+		<SCRIPT TYPE="text/javascript" SRC="javascript/black_scholes.js">
+		</SCRIPT>
+		<meta charset="utf-8">
+		<meta name="description" content="Calcula el precio de una opcion europea mediante la formula de Black Scholes">
+		<meta name="keywords" content="Black Scholes, Opcion, Call, Put, Europea, plain vanilla, precio">
+		<title>Mathematika: F&oacutermula de Black-Scholes</title>
+		<link rel="stylesheet" href="estilos_index.css">
+	</HEAD>
+	<BODY>
+		<DIV id="caja_principal">
+			<HEADER id="cabecera">
+				<h1>Precio de una Opci&oacuten Europea. F&oacutermula de Black-Scholes</h1>
+			</HEADER>
+			<NAV id="menu">
+				<ul>
+					<li><A class="blanco" HREF="index.html">Inicio</A></li>
+					<li><A class="blanco" HREF="articulos.html">Art&iacuteculos</A></li>
+					<li><A class="blanco" HREF="algoritmos.html">Algoritmos</A></li>
+					<li><A class="blanco" HREF="referencias.html">Referencias</A></li>
+				</ul>
+			</NAV>
+			<SECTION id="area_principal">
+				<SCRIPT TYPE="text/javascript">
+					function on_click(){
+					var spot = new Number(document.formularioBlack.Spot.value);
+					var strike = new Number(document.formularioBlack.Strike.value);
+					var maturity = new Number(document.formularioBlack.Maturity.value);
+					var volatilidad = new Number(document.formularioBlack.Volatilidad.value);
+					var rate = new Number(document.formularioBlack.Rate.value);
+					var tipo = document.formularioBlack.Tipo.value;
+					document.formularioBlack.resultado.value = new String(
+							priceBlackScholes(spot, strike, maturity, volatilidad, rate, tipo));
+					}
+				</SCRIPT>
+				<H3>C&aacutelculo del Precio de un Opci&oacuten mediante Black-Scholes</H3>
+				<FORM ID="formulario" NAME="formularioBlack">
+					<TABLE>
+						<TR>
+							<TD>Precio Spot :</TD>
+							<TD><INPUT TYPE="text" ID="Spot" 
+								NAME="Spot" MAXLENGTH="50" SIZE="50"></TD>
+						</TR>
+						<TR>
+							<TD>Strike :</TD>
+							<TD><INPUT TYPE="text" ID="Strike" NAME="Strike" MAXLENGTH="20"
+								SIZE="20"></TD>
+						</TR>
+						<TR>
+							<TD>Tiempo en a&ntildeos a vencimiento :</TD>
+							<TD><INPUT TYPE="text" ID="Maturity" NAME="Maturity" MAXLENGTH="20"
+								SIZE="20"></TD>
+						</TR>
+						<TR>
+							<TD>Volatilidad :</TD>
+							<TD><INPUT TYPE="text" ID="Volatilidad" NAME="Volatilidad" MAXLENGTH="20"
+								SIZE="20"></TD>
+						</TR>
+						<TR>
+							<TD>Tipo libre de riesgo en fracciones de unidad :</TD>
+							<TD><INPUT TYPE="text" ID="Rate" NAME="Rate" MAXLENGTH="20"
+								SIZE="20"></TD>
+						</TR>
+						<TR>
+							<TD>Tipo de Opci&oacuten :</TD>
+							<TD><SELECT ID="Tipo" NAME="Tipo">
+								<OPTION ID="Call_Europea" VALUE="call">European Call</OPTION>
+								<OPTION ID="Put_Europea" VALUE="put">European Put</OPTION>
+								</TD>
+						</TR>
+					</TABLE>
+					<BR><BR>
+					<INPUT TYPE="button" ID="calcular" NAME="calcular" VALUE="Calcular" ONCLICK="on_click();">
+					<INPUT TYPE="text" ID="resultado" NAME="resultado" MAXLENGTH="50" SIZE="50" DISABLED>
+				</FORM>
+				<BR>
+				<BR>
+			</SECTION>
+			<ASIDE id="barra_lateral">
+				<DETAILS>
+					<SUMMARY>Ayuda</SUMMARY>
+						<BLOCKQUOTE>C&aacutelcula el precio de una opci&oacuten europea call o put 
+							usando la f&oacutermula de Black-Scholes</BLOCKQUOTE>
+						<BLOCKQUOTE>Precio Spot, es el precio actual del subyacente.</BLOCKQUOTE>
+						<BLOCKQUOTE>Strike es el precio de referencia del subyacente a vencimiento.
+						</BLOCKQUOTE>
+						<BLOCKQUOTE>En tiempo en a&nacuteos a vencimiento, intorduciremos el intervalo de 
+							tiempo desde hoy hasta la fecha de vencimiento expresado en unidades
+							a&nacuteo.</BLOCKQUOTE>
+						<BLOCKQUOTE>Volatilidad. Es la desviaci&oacuten t&iacutepìca del subyacente anualizada
+							y en expresada en fracciones de unidad.</BLOCKQUOTE>
+						<BLOCKQUOTE>Tipo libre de riesgo. Es el tipo de inter&eacutes continuo anualizado y 
+							expresado en fracciones de unidad.</BLOCKQUOTE>	
+				</DETAILS>
+				<BR>
+				<BR>
+			</ASIDE>
+			<FOOTER id="pie">
+				Alexis S&aacutenchez Tello de Meneses. 
+				<A HREF="http://es.linkedin.com/pub/alexis-s%C3%A1nchez-tello-de-meneses/1a/95/b3" 
+					target="_blank">Ver perfil.</A>
+				<A HREF="https://github.com/alexisstdm/Web_Mathematika" target="_blank">Contribuir en gitHub</A>
+			</FOOTER>
+		</DIV>
+	</BODY>
+</HTML>
