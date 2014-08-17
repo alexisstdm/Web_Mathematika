@@ -34,9 +34,10 @@
 					var maturity = new Number(document.formularioBlack.Maturity.value);
 					var volatilidad = new Number(document.formularioBlack.Volatilidad.value);
 					var rate = new Number(document.formularioBlack.Rate.value);
+					var dividend_rate = new Number(document.formularioBlack.DividendRate.value);
 					var tipo = document.formularioBlack.Tipo.value;
 					document.formularioBlack.resultado.value = new String(
-							priceBlackScholes(spot, strike, maturity, volatilidad, rate, tipo));
+						priceBlackScholes(spot, strike, maturity, volatilidad, rate, dividend_rate, tipo));
 					}
 				</SCRIPT>
 				<H3>C&aacutelculo del Precio de un Opci&oacuten mediante Black-Scholes</H3>
@@ -68,6 +69,11 @@
 								SIZE="20"></TD>
 						</TR>
 						<TR>
+							<TD>Tasa anual de dividendo en fracciones de unidad :</TD>
+							<TD><INPUT TYPE="text" ID="DividendRate" NAME="DividendRate" MAXLENGTH="20"
+								SIZE="20"></TD>
+						</TR>
+						<TR>
 							<TD>Tipo de Opci&oacuten :</TD>
 							<TD><SELECT ID="Tipo" NAME="Tipo">
 								<OPTION ID="Call_Europea" VALUE="call">European Call</OPTION>
@@ -96,6 +102,8 @@
 						<BLOCKQUOTE>Volatilidad. Es la desviaci&oacuten t&iacutepìca del subyacente anualizada
 							y en expresada en fracciones de unidad.</BLOCKQUOTE>
 						<BLOCKQUOTE>Tipo libre de riesgo. Es el tipo de inter&eacutes continuo anualizado y 
+							expresado en fracciones de unidad.</BLOCKQUOTE>	
+						<BLOCKQUOTE>Tasa de dividendo. Es el tipo de dividendo continuo anualizado y 
 							expresado en fracciones de unidad.</BLOCKQUOTE>	
 				</DETAILS>
 				<BR>

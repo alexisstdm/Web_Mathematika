@@ -6,19 +6,21 @@ function normal_dist(x){
 		return (1 + integral_Simpson_grado_2(funcion, -x, x, 1000))/2.0;
 }
 
-function priceBlackScholes(spot, strike, maturity, volatility, rate, type){
+function priceBlackScholes(spot, strike, maturity, volatility, rate, dividend_rate, type){
 
 	var d_plus = 1.0/volatility/Math.sqrt(maturity)*
-			Math.log(spot*Math.exp(rate*maturity/strike))+
+			Math.log(spot*Math.exp((rate-dividend_rate)*maturity)/strike)+
 			1.0/2.0*volatility*Math.sqrt(maturity);
 	var d_minus = 1.0/volatility/Math.sqrt(maturity)*
-			Math.log(spot*Math.exp(rate*maturity/strike))-
+			Math.log(spot*Math.exp((rate-dividend_rate)*maturity)/strike)-
 			1.0/2.0*volatility*Math.sqrt(maturity);
 
 	if (type == "call")
-		return spot * normal_dist(d_plus) - strike * Math.exp(-rate*maturity) * normal_dist(d_minus);
+		return spot * normal_dist(d_plus) * Math.exp(-dividend_rate * maturity)
+			- strike * Math.exp(-rate*maturity) * normal_dist(d_minus);
 	else if (type == "put")
-		return strike * Math.exp(-rate*maturity) * normal_dist(-d_minus) - spot * normal_dist(-d_plus);
+		return strike * Math.exp(-rate*maturity) * normal_dist(-d_minus) 
+			- spot * normal_dist(-d_plus) * Math.exp(-dividend_rate * maturity);
 	else
 		return 0.0;
 }
