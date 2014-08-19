@@ -16,7 +16,9 @@
 			var tiempo;
 			var volatilidad;
 			var rate;
+			var dividend_rate;
 			var tipo;
+			var griegas;
 
 			alert("Precio Black Scholes");
 			spot = new Number(prompt("Spot"));
@@ -24,10 +26,23 @@
 			tiempo = new Number(prompt("Time to Maturity"));
 			volatilidad = new Number(prompt("Volatility"));
 			rate = new Number(prompt("Rate"));
+			dividend_rate = new Number(prompt("Dividend Rate"));
 			tipo = prompt("Type");
 			cadenaTexto = "The Price is  " + 
-					priceBlackScholes(spot, strike, tiempo, volatilidad, rate, tipo);
+					priceBlackScholes(spot, strike, tiempo, volatilidad, rate, dividend_rate, tipo);
 			alert(cadenaTexto);
+			griegas = greeksBlackScholes(spot, strike, tiempo, volatilidad, rate, dividend_rate, tipo);
+			cadenaTexto = "Delta is " + griegas["delta"];
+			alert(cadenaTexto);
+			cadenaTexto = "Vega is " + griegas["vega"];
+			alert(cadenaTexto);
+			cadenaTexto = "Theta is " + griegas["theta"];
+			alert(cadenaTexto);
+			cadenaTexto = "Rho is " + griegas["rho"];
+			alert(cadenaTexto);
+			cadenaTexto = "Dividend Delta is " + griegas["dividend_delta"];
+			alert(cadenaTexto);
+
 
 		</SCRIPT>
 	</BODY>
