@@ -38,6 +38,13 @@
 					var tipo = document.formularioBlack.Tipo.value;
 					document.formularioBlack.resultado.value = new String(
 						priceBlackScholes(spot, strike, maturity, volatilidad, rate, dividend_rate, tipo));
+					var greeks = greeksBlackScholes(spot, strike, maturity, volatilidad, rate, dividend_rate,
+									tipo);
+					document.formularioBlackGreeks.Delta.value = new String(greeks["delta"]);
+					document.formularioBlackGreeks.Vega.value = new String(greeks["vega"]);
+					document.formularioBlackGreeks.Theta.value = new String(greeks["theta"]);
+					document.formularioBlackGreeks.Rho.value = new String(greeks["rho"]);
+					document.formularioBlackGreeks.DividendDelta.value = new String(greeks["dividend_delta"]);
 					}
 				</SCRIPT>
 				<H3>C&aacutelculo del Precio de un Opci&oacuten mediante Black-Scholes</H3>
@@ -87,6 +94,45 @@
 				</FORM>
 				<BR>
 				<BR>
+				<DETAILS>
+					<SUMMARY>Pulsar para ver Griegas</SUMMARY>
+						<BLOCKQUOTE>
+							<FORM ID="formulario_2" NAME="formularioBlackGreeks">
+								<TABLE>
+									<TR>
+										<TD>Delta :</TD>
+										<TD><INPUT TYPE="text" ID="Delta" 
+											NAME="Delta" MAXLENGTH="20" 
+											SIZE="20" DISABLED></TD>
+									</TR>
+									<TR>
+										<TD>Vega :</TD>
+										<TD><INPUT TYPE="text" ID="Vega" 
+											NAME="Vega" MAXLENGTH="20"
+											SIZE="20" DISABLED></TD>
+									</TR>
+									<TR>
+										<TD>Theta :</TD>
+										<TD><INPUT TYPE="text" ID="Theta" 
+											NAME="Theta" MAXLENGTH="20"
+											SIZE="20" DISABLED></TD>
+									</TR>
+									<TR>
+										<TD>Rho :</TD>
+										<TD><INPUT TYPE="text" ID="Rho" 
+											NAME="Rho" MAXLENGTH="20"
+											SIZE="20" DISABLED></TD>
+									</TR>
+									<TR>
+										<TD>Dividend Delta :</TD>
+										<TD><INPUT TYPE="text" ID="DividendDelta" 
+											NAME="DividendDelta" MAXLENGTH="20"
+											SIZE="20" DISABLED></TD>
+									</TR>
+								</TABLE>
+							</FORM>
+						</BLOCKQUOTE>
+				</DETAILS>
 			</SECTION>
 			<ASIDE id="barra_lateral">
 				<DETAILS>
