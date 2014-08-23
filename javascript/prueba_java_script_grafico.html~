@@ -1,0 +1,26 @@
+<HTML>
+	<HEAD>
+		<SCRIPT TYPE="text/javascript" SRC="graficos.js">
+		</SCRIPT>
+	</HEAD>
+	<BODY>
+		<canvas id="lienzo" width= "500", height="300"></canvas>
+		<SCRIPT TYPE="text/javascript">
+			function prueba(){}
+
+			function iniciar(){
+				var elemento = document.getElementById("lienzo");
+				var punto = {x:0.0,y:0.0};
+				var puntos = new Array();
+				var paso = Math.PI * 2.0 / 20.0;
+				for (var i=0; i<=20; i++)
+					puntos.push({x:i*paso, y:Math.sin(i*paso)});
+				prueba();
+				grafica_funcion(elemento, puntos);		
+			}
+			
+			addEventListener("load", iniciar);
+			
+		</SCRIPT>
+	</BODY>
+</HTML>
