@@ -7,6 +7,8 @@
 		</SCRIPT>
 		<SCRIPT TYPE="text/javascript" SRC="javascript/black_scholes.js">
 		</SCRIPT>
+		<SCRIPT TYPE="text/javascript" SRC="javascript/graficos.js">
+		</SCRIPT>
 		<meta charset="utf-8">
 		<meta name="description" content="Calcula el precio de una opcion europea mediante la formula de Black Scholes">
 		<meta name="keywords" content="Black Scholes, Opcion, Call, Put, Europea, plain vanilla, precio">
@@ -45,6 +47,15 @@
 					document.formularioBlackGreeks.Theta.value = new String(greeks["theta"]);
 					document.formularioBlackGreeks.Rho.value = new String(greeks["rho"]);
 					document.formularioBlackGreeks.DividendDelta.value = new String(greeks["dividend_delta"]);
+
+					var incremento = 0.02*strike;
+					var puntos = new Array();
+					var inicio = strike - 10 * incremento;
+					for (var i=0; i<=21; i++)
+						puntos.push({x:inicio+i*incremento,
+								y:priceBlackScholes(inicio+i*incremento, strike, maturity, 
+										volatilidad, rate, dividend_rate, tipo)});
+					grafica_funcion("grafica_payoff", puntos, true);
 					}
 				</SCRIPT>
 				<H3>C&aacutelculo del Precio de un Opci&oacuten mediante Black-Scholes</H3>
@@ -139,12 +150,6 @@
 					<SUMMARY>Pulsar para ver Payoff</SUMMARY>
 						<BLOCKQUOTE>
 							<CANVAS id="grafica_payoff" width="500" height="400"></CANVAS>
-							<SCRIPT TYPE="text/javascript">
-							var elemento = document.getElementById("grafica_payoff");
-							var grafica_payoff = elemento.getContext("2d");
-							alert(grafica_payoff.height);
-							alert(grafica_payoff.width);
-							</SCRIPT>
 						</BLOCKQUOTE>
 				</DETAILS>
 			</SECTION>
@@ -156,7 +161,7 @@
 						<BLOCKQUOTE>Precio Spot, es el precio actual del subyacente.</BLOCKQUOTE>
 						<BLOCKQUOTE>Strike es el precio de referencia del subyacente a vencimiento.
 						</BLOCKQUOTE>
-						<BLOCKQUOTE>En tiempo en a&nacuteos a vencimiento, intorduciremos el intervalo de 
+						<BLOCKQUOTE>En tiempo en a&ntildeos a vencimiento, intorduciremos el intervalo de 
 							tiempo desde hoy hasta la fecha de vencimiento expresado en unidades
 							a&nacuteo.</BLOCKQUOTE>
 						<BLOCKQUOTE>Volatilidad. Es la desviaci&oacuten t&iacutepìca del subyacente anualizada

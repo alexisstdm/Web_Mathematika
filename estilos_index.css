@@ -99,3 +99,7 @@ p {
 	border-top: 2px solid #999999;
 	font: 10px verdana, arial;
 }
+
+canvas {
+		background: #FFFFFF;
+}
