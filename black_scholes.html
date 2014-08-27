@@ -41,31 +41,41 @@
 			<SECTION id="area_principal">
 				<SCRIPT TYPE="text/javascript">
 					function on_click(){
-					var spot = new Number(document.formularioBlack.Spot.value);
-					var strike = new Number(document.formularioBlack.Strike.value);
-					var maturity = new Number(document.formularioBlack.Maturity.value);
-					var volatilidad = new Number(document.formularioBlack.Volatilidad.value);
-					var rate = new Number(document.formularioBlack.Rate.value);
-					var dividend_rate = new Number(document.formularioBlack.DividendRate.value);
-					var tipo = document.formularioBlack.Tipo.value;
-					document.formularioBlack.resultado.value = new String(
-						priceBlackScholes(spot, strike, maturity, volatilidad, rate, dividend_rate, tipo));
-					var greeks = greeksBlackScholes(spot, strike, maturity, volatilidad, rate, dividend_rate,
-									tipo);
-					document.formularioBlackGreeks.Delta.value = new String(greeks["delta"]);
-					document.formularioBlackGreeks.Vega.value = new String(greeks["vega"]);
-					document.formularioBlackGreeks.Theta.value = new String(greeks["theta"]);
-					document.formularioBlackGreeks.Rho.value = new String(greeks["rho"]);
-					document.formularioBlackGreeks.DividendDelta.value = new String(greeks["dividend_delta"]);
+						var spot = new Number(document.formularioBlack.Spot.value);
+						var strike = new Number(document.formularioBlack.Strike.value);
+						var maturity = new Number(document.formularioBlack.Maturity.value);
+						var volatilidad = new Number(document.formularioBlack.Volatilidad.value);
+						var rate = new Number(document.formularioBlack.Rate.value);
+						var dividend_rate = new Number(document.formularioBlack.DividendRate.value);
+						var tipo = document.formularioBlack.Tipo.value;
+						setTimeout(function(){
+							document.formularioBlack.resultado.value = new String(
+							priceBlackScholes(spot, strike, maturity, volatilidad, rate, 
+									dividend_rate, tipo));
+							var greeks = greeksBlackScholes(spot, strike, maturity, volatilidad, 
+											rate, dividend_rate, tipo);
+							document.formularioBlackGreeks.Delta.value = new String(greeks["delta"]);
+							document.formularioBlackGreeks.Vega.value = new String(greeks["vega"]);
+							document.formularioBlackGreeks.Theta.value = new String(greeks["theta"]);
+							document.formularioBlackGreeks.Rho.value = new String(greeks["rho"]);
+							document.formularioBlackGreeks.DividendDelta.value = 	
+												new String(greeks["dividend_delta"]);
 
-					var incremento = 0.02*strike;
-					var puntos = new Array();
-					var inicio = strike - 10 * incremento;
-					for (var i=0; i<=21; i++)
-						puntos.push({x:inicio+i*incremento,
-								y:priceBlackScholes(inicio+i*incremento, strike, maturity, 
-										volatilidad, rate, dividend_rate, tipo)});
-					grafica_funcion("grafica_payoff", puntos, true);
+							var incremento = 0.01*strike;
+							var puntos = new Array();
+							var inicio = strike - 20 * incremento;
+							for (var i=0; i<=41; i++)
+								puntos.push({x:inicio+i*incremento,
+									y:priceBlackScholes(inicio+i*incremento, strike, maturity, 
+											volatilidad, rate, dividend_rate, tipo)});
+							grafica_funcion("grafica_payoff", puntos, true);
+						},25);
+						document.formularioBlack.resultado.value = "Wait ...";
+						document.formularioBlackGreeks.Delta.value = "Wait ...";
+						document.formularioBlackGreeks.Vega.value = "Wait ...";
+						document.formularioBlackGreeks.Theta.value = "Wait ...";
+						document.formularioBlackGreeks.Rho.value = "Wait ...";
+						document.formularioBlackGreeks.DividendDelta.value = "Wait ...";
 					}
 				</SCRIPT>
 				<H3>C&aacutelculo del Precio de un Opci&oacuten mediante Black-Scholes</H3>
