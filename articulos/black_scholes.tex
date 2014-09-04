@@ -1,0 +1,47 @@
+\documentclass{article}
+	\usepackage[total={18cm,27cm},top=2cm, left=2cm, bottom=2cm, right=2cm]{geometry}
+
+\title{Deducci\'{o}n de las f\'{o}rmulas de Black-Scholes mediante valor esperado del pago futuro \footnote{\LaTeX}}
+\author{Alexis S\'{a}nchez Tello de Meneses}
+\date{4 Septiembre 2014}
+
+\begin{document}
+
+\maketitle
+
+\section{Abstract}
+
+Se desarrollar\'{a} a partir del modelo de evoluci\'{o}n {\em log-normal} para un subyacente, las f\'{o}rmulas de
+Black-Scholes para el precio de opciones plain vanilla (call/put) europeas, así mismo, mediante derivaci\'{o}n directa
+de las f\'{o}rmulas con respecto a sus par\'{a}metros obtendremos las griegas m\'{a}s representativas.
+
+\section{Modelo {\em log-normal} del subyacente.}
+
+Se asume que la evoluci\'{o}n del precio del subyacente (precio de una de acci\'{o}n en el mercado de
+renta variable), $S$, es un proceso estoc\'{a}stico continuo y {\em log-normal}. La descripci\'{o}n
+matem\'{a}tica de este proceso queda recogida en la siguiente ecuaci\'{o}n diferencial estoc\'{a}stica.
+\newline
+
+\begin{eqnarray}
+	dS_{t} = \mu S_{t}dt + \sigma S_{t}dW_{t}
+\end{eqnarray}
+\newline
+
+Aqu\'{i}, $dS_{t}$ es $S_{t+dt}-S_{t}$. La deriva del proceso ser\'{i}a $\mu$, que coincidir\'{a} con el tipo de 
+inter\'{e}s continuo y anual libre de riesgo de la cuenta bancaria, escogi\'{e}ndose esta como numerario, para que el
+proceso del logaritmo del subyacente sea una martingala. La volatilidad anualizada del subyacente ser\'{a} $\sigma$,
+siendo $dW_{t}$ un salto gaussiano de media cero y desviaci\'{o}n t\'{i}ìca $\sqrt{dt}$.
+\newline
+
+Si incorporamos a (1) los pagos de dividendo, de manera continua, con una tasa anual $\delta$, el subyacente, al pasar del
+valor $S_{t}$ en $t$ al valor $S_{t+dt}$ en $t+dt$, disminuye su valor en la cuant\'{i}a $\delta S_{t}$, que es 
+justamente el dividendo que se acaba de repartir. La ecuaci\'{o}n (1) corregida con el pago de dividendos, quedar\'{i}a de
+la forma:
+\newline
+
+\begin{eqnarray}
+	dS_{t} = \mu S_{t}dt - \underbrace{\delta S_{t}dt}_{dividendo} + \sigma S_{t}dW_{t}
+\end{eqnarray}
+
+
+\end{document}
