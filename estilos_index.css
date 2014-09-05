@@ -103,3 +103,9 @@ p {
 canvas {
 		background: #FFFFFF;
 }
+
+#imagen_git {
+		margin: 10px;
+		transform:scale(0.1,0.1);
+		-webkit-transform:scale(0.1,0.1);
+}
