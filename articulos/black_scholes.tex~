@@ -12,7 +12,7 @@
 \section{Abstract}
 
 Se desarrollar\'{a} a partir del modelo de evoluci\'{o}n {\em log-normal} para un subyacente, las f\'{o}rmulas de
-Black-Scholes para el precio de opciones plain vanilla (call/put) europeas, así mismo, mediante derivaci\'{o}n directa
+Black-Scholes para el precio de opciones plain vanilla (call/put) europeas, as\'{i} mismo, mediante derivaci\'{o}n directa
 de las f\'{o}rmulas con respecto a sus par\'{a}metros obtendremos las griegas m\'{a}s representativas.
 
 \section{Modelo {\em log-normal} del subyacente.}
@@ -57,5 +57,23 @@ la siguiente forma:
 \begin{eqnarray}
 	dS_{t}^{'} & = & \frac{df}{dS_{t}}dS_{t} + \frac{1}{2}\frac{d^{2}f}{dS_{t}^{2}}dS_{t}^{2} + \ldots
 \end{eqnarray} 
+
+Usando $S_{t}^{'} = f(S_{t}) = \ln(S_{t})$ en el desarrollo en serie, y qued\'{a}ndonos hasta t\'{e}rminos de segundo orden en $dS_{t}$:
+\newline
+
+\begin{eqnarray}
+	dS_{t}^{'}	& = & \frac{dS_{t}}{S_{t}} - \frac{1}{2}\cdot\frac{1}{S_{t}^{2}}dS_{t}^{2} + \ldots \nonumber \\
+			& = & \left( \mu - \delta \right) dt + \sigma dW_{t} - \frac{1}{2}\sigma^{2}dW_{t}^{2} + \ldots \nonumber \\
+			& = & \left( \mu - \delta - \frac{1}{2}\sigma^{2} \right)dt + \sigma dW_{t} 		 
+\end{eqnarray}
+
+Usando el anterior cambio de variable reducimos la ecuaci\'{o}n diferencial estoc\'{a}stica log-normal a una ecuaci\'{o}n, de saltos normales de
+desviaci\'{o}n t\'{i}pica $\sigma \sqrt{dt}$. Esta ecuaci\'{o}n se puede {\em integrar} directamente dando como resultado la evoluci\'{o}n
+temporal del subyacente. (Sabiendo que en el sentido de variables aleatorias, a efectos pr\'{a}cticos de valores esperados y momentos, se cumple que $\sigma dW_{t} \simeq \sigma \sqrt{dt} X \left( 0,1 \right)$ , que sustituy\'{e}ndolo en la ecuaci\'{o}n anterior, proporciona...).
+\newline
+
+\begin{equation}
+	S_{t}^{'} = \left(\mu - \delta - \frac{\sigma^{2}}{2}\right) t + \sigma\sqrt{t}X(0,1)
+\end{equation}  
 
 \end{document}
