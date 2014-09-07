@@ -1,0 +1,116 @@
+body {
+	text-align: center;
+}
+
+#menu {
+	background: #8F3F00;
+}
+	
+#menu li {
+		display: inline-block;
+		list-style: none;
+		padding: 5px;
+		font: bold 14px verdana, arial;
+}
+
+a.blanco:link {
+	color: white;
+	text-decoration: none;
+}
+
+a.negro:link {
+	color: black;
+	text-decoration: none;
+}
+
+a.blanco:visited {
+	color: white;
+	text-decoration: none;
+}
+
+a.negro:visited {
+	color: black;
+	text-decoration: none;
+}
+
+a.blanco:hover {
+	color: white;
+	text-decoration: underline;
+}
+
+a.negro:hover {
+	color: black;
+	text-decoration: underline;
+}
+
+#caja_principal {
+	background: #00BFFF;
+	width: 960px;
+	margin: 15px auto;
+	text-align: left;
+	font: 16px arial;
+}
+
+#politica_cookies {
+	background: #00005F;
+	color: white;
+}
+
+#cabecera {
+	background: #00005F;
+	border: 1px solid #999999;
+	padding: 5px;
+	color: white;
+	font: bold 16px arial;
+}
+
+h1 {
+	font: bold 24px verdana, arial; 
+}
+
+h2 {
+	font: bold 20px verdana, arial; 
+}
+
+h3 {
+	font: bold 20px verdana, arial; 
+}
+
+p {
+	font: 16px verdana, arial;
+	padding: 5px;
+}
+
+#area_principal {
+	float: left;
+	width: 560px;
+	margin: 20px;
+}
+
+#barra_lateral {
+	float: left;
+	width: 320px;
+	margin: 20px 0px;
+	padding: 20px;
+	font: 12px verdana, arial;
+	color: #004F00;
+	text-align: left;
+}
+
+#pie {
+	clear: both;
+	text-align: center;
+	padding: 10px;
+	border-top: 2px solid #999999;
+	font: 10px verdana, arial;
+}
+
+canvas {
+		background: #FFFFFF;
+}
+
+#imagen_git {
+		margin: 10px;
+		transform:scale(0.1,0.1);
+		-webkit-transform:scale(0.1,0.1);
+}
