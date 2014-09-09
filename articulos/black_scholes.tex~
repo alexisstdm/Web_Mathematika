@@ -69,11 +69,35 @@ Usando $S_{t}^{'} = f(S_{t}) = \ln(S_{t})$ en el desarrollo en serie, y qued\'{a
 
 Usando el anterior cambio de variable reducimos la ecuaci\'{o}n diferencial estoc\'{a}stica log-normal a una ecuaci\'{o}n, de saltos normales de
 desviaci\'{o}n t\'{i}pica $\sigma \sqrt{dt}$. Esta ecuaci\'{o}n se puede {\em integrar} directamente dando como resultado la evoluci\'{o}n
-temporal del subyacente. (Sabiendo que en el sentido de variables aleatorias, a efectos pr\'{a}cticos de valores esperados y momentos, se cumple que $\sigma dW_{t} \simeq \sigma \sqrt{dt} X \left( 0,1 \right)$ , que sustituy\'{e}ndolo en la ecuaci\'{o}n anterior, proporciona...).
+temporal del logaritmo del subyacente. (Sabiendo que en el sentido de variables aleatorias, a efectos pr\'{a}cticos de valores esperados y momentos, se cumple que $\sigma dW_{t} \simeq \sigma \sqrt{dt} X \left( 0,1 \right)$ , siendo 
+$ X \left( 0, 1 \right)$, la variable aleatoria normal est\'{a}ndar). Sustituy\'{e}ndolo en la ecuaci\'{o}n anterior, proporciona...).
 \newline
 
 \begin{equation}
-	S_{t}^{'} = \left(\mu - \delta - \frac{\sigma^{2}}{2}\right) t + \sigma\sqrt{t}X(0,1)
-\end{equation}  
+	S_{T}^{'} = S_{t}^{'} + \left(\mu - \delta - \frac{\sigma^{2}}{2}\right) \tau + \sigma\sqrt{\tau}X(0,1)
+\end{equation}
+
+Aqu\'{i} $T$ representa el tiempo final de la evoluci\'{o}n de la funcion de cambio de variable del subyacente, y aqui $\tau$ es 
+$T - t$.
+\newline
+
+Deshaciendo el cambio de variable en (5), obtenemos la evoluci\'{o}n del subyacete.
+\newline
+
+\begin{equation}
+	S_{T}=S_{t}e^{\left( \mu - \delta - \frac{\sigma^{2}}{2} \right)\tau + \sigma\sqrt{\tau}X\left( 0,1\right)}
+\end{equation}
+\newpage
+
+\section{Valoraci\'{o}n de una Call Europea}
+El precio de una call europea lo deducimos como el valor esperado del pago a vencimiento, descontando desde su fecha hasta
+la fecha de valoraci\'{o}n. Supongamos que el vencimiento es en $T$ y la fecha de valoraci\'{o}n es $t$, denotemos $\tau = T - t$ . 
+El valor esperado del pago futuro sera
+
+\begin{equation}
+	E\left( e^{-r\tau} \left[ S_{T} - K \right] ^{+} \right) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty}e^{-r\tau}
+	\left[ S_{T} - K \right] ^{+} e^{-\frac{1}{2}x^{2}}dx
+\end{equation}
+
 
 \end{document}
