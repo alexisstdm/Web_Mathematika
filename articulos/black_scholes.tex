@@ -98,6 +98,91 @@ El valor esperado del pago futuro sera
 	E\left( e^{-r\tau} \left[ S_{T} - K \right] ^{+} \right) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty}e^{-r\tau}
 	\left[ S_{T} - K \right] ^{+} e^{-\frac{1}{2}x^{2}}dx
 \end{equation}
+\newline
 
+Aqu\'{i} $r$ es el inter\'{e}s libre de riesgo y $\left[S_{T}-K\right] ^{+}$ representa la funci\'{o}n de pago en tiempo $T$, que ser\'{a} $S_{T}-K$
+si $S_{T}-K>0$ o $0$ en caso contrario.
+\newline
+
+Sustituyendo $S_{T}$ por la expresi\'{o}n de su evoluci\'{o}n en funci\'{o}n de $\tau = T - t$, y teniendo en cuenta que $x$ es $X\left(0,1
+\right)$, esto es, la variable aleatoria normal est\'{a}ndar de media $0$ y desviaci\'{o}n t\'{i}pica $1$, obtenemos:
+\newline
+
+\begin{equation}
+	E\left( e^{-r\tau} \left[ S_{T} - K \right] ^{+} \right) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}e^{-r\tau}
+	\left[S_{t}e^{\left[\left(\mu-\delta-\frac{\sigma^{2}}{2}\right)t+\sigma\sqrt{t}x\right]}-K\right]^{+}e^{-\frac{1}{2}x^{2}}
+	dx	
+\end{equation}
+\newline
+
+Forzamos que el par\'{a}metro $\mu$ del modelo sea igual a $r$ para evitar oprtunidad de arbitraje. Por tanto la ecuaci\'{o}n anterior queda
+de la forma:
+\newline
+
+\begin{equation}
+	E\left( e^{-r\tau} \left[ S_{T} - K \right] ^{+} \right) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}e^{-\delta\tau}
+	\left[S_{t}e^{\sigma\sqrt{\tau}x-\frac{\sigma^{2}}{2}\tau}-Ke^{-(r-\delta)\tau}\right]^{+}e^{-
+	\frac{1}{2}x^{2}}dx
+\end{equation}
+\newline
+
+El dominio de integraci\'{o}n de $(9)$ se puede descomponer en dos intervalos; uno en el que la funci\'{o}n valor positivo es distinta de
+cero, y otro en el que es cero, con lo cual, como l\'{i}mite inferior de integraci\'{o}n sustituimos $-\infty$ por $x_{0}$, 
+que es como denominamos al valor que divide la recta real en los dos intervalos. Vamos a calcular $x_{0}$ .
+\newline
+
+\begin{equation}
+	S_{t}e^{\sigma\sqrt{\tau}x-\frac{\sigma^{2}}{2}\tau}-Ke^{-\left(r-\delta\right)\tau} \geq 0
+\end{equation}
+\newline
+
+Veamos a partir de que valor de $x$ se cumple $(10)$. Tomando logaritmos y reordenando la inecuaci\'{o}n...
+\newline
+
+\begin{eqnarray}
+	\ln S_{t} +x\sigma\sqrt{\tau} - \frac{\sigma^{2}}{2}\tau & \geq & \ln K - \left(r - \delta \right) \tau \nonumber \\
+	x\sigma\sqrt{\tau} - \frac{\sigma^{2}}{2}\tau & \geq & -\ln S_{t} + \ln K - \left( r - \delta \right) \tau \nonumber \\
+	x\sigma\sqrt{\tau} - \frac{\sigma^{2}}{2}\tau & \geq & -\left(\ln\left(\frac{S_{t}}{K}\right) + \ln\left(e^{\left(r-
+	\delta\right)\tau}\right)\right) \nonumber \\
+	x & \geq & - \frac{1}{\sigma\sqrt{\tau}} \ln\left(\frac{S_{t}}{Ke^{-\left(r-\delta\right)\tau}}\right) + 
+	\frac{\sigma\sqrt{\tau}}{2}
+\end{eqnarray}
+\newline
+
+El t\'{e}rmino derecho de $(10)$ es el valor frontera $x_{0}$ buscado. Por tanto la integral $(9)$ se reduce al intervalo de $x_{0}$ a
+$-\infty$ .
+\newline
+
+\begin{equation}
+	E\left( e^{-r\tau} \left[ S_{T} - K \right] ^{+} \right) = \frac{1}{\sqrt{2\pi}}\int_{-x_{0}}^{+\infty}e^{-\delta\tau}
+	\left[S_{t}e^{\sigma\sqrt{\tau}x-\frac{\sigma^{2}}{2}\tau}-Ke^{-(r-\delta)\tau}\right]^{+}e^{-
+	\frac{1}{2}x^{2}}dx
+\end{equation}
+\newline
+
+Esto se descompone en la suma de dos integrales que pasamos a llamar $I_{1}$ e $I_{2}$ .
+\newline
+
+\begin{equation}
+	\underbrace{\frac{1}{\sqrt{2\pi}}S_{t}e^{-\delta\tau}\int_{x_{0}}^{+\infty}e^{-\left(\frac{1}{2}x^{2}-\sigma\sqrt{\tau}x
+	 + \frac{\sigma^{2}}{2}\tau\right)}dx}_{I_{1}} - \underbrace{\frac{1}{\sqrt{2\pi}}Ke^{-r\tau}\int_{x_0}^{+\infty}
+	e^{-\frac{1}{2}x^{2}}dx}_{I_{2}}
+\end{equation}
+\newline
+
+Resolvemos primero $I_{2}$ :
+
+\begin{eqnarray}
+	I_{2} 	& = & -\frac{1}{\sqrt{2\pi}}Ke^{-r\tau}\int_{x_{0}}^{+\infty}e^{-\frac{1}{2}x^{2}}dx \nonumber \\
+	      	& = & -\frac{1}{\sqrt{2\pi}}Ke^{-r\tau}\int_{-\infty}^{-x_{0}}e^{-\frac{1}{2}x^{2}}dx
+\end{eqnarray}
+
+El \'{u}ltimo paso en el desarrollo de arriba es debido a que el integrando es una funci\'{o}n par. Denotemos $d_{-} = -x_{0}$. Entonces.
+\newline
+
+\begin{equation}
+	d_{-} = \frac{1}{\sqrt{2\pi}}\ln\left(\frac{S_{t}}{Ke^{-\left(r-\delta\right)\tau}}\right) - 
+	\frac{1}{2}\sigma\sqrt{\tau}	
+\end{equation}
 
 \end{document}
