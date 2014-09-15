@@ -177,12 +177,75 @@ Resolvemos primero $I_{2}$ :
 	      	& = & -\frac{1}{\sqrt{2\pi}}Ke^{-r\tau}\int_{-\infty}^{-x_{0}}e^{-\frac{1}{2}x^{2}}dx
 \end{eqnarray}
 
-El \'{u}ltimo pasa en el desarrollo de arriba es debido a que el integrando es una funci\'{o}n par. Denotemos $d_{-} = -x_{0}$. Entonces.
+El \'{u}ltimo paso en el desarrollo de arriba es debido a que el integrando es una funci\'{o}n par. Denotemos $d_{-} = -x_{0}$. Entonces.
 \newline
 
 \begin{equation}
 	d_{-} = \frac{1}{\sqrt{2\pi}}\ln\left(\frac{S_{t}}{Ke^{-\left(r-\delta\right)\tau}}\right) - 
 	\frac{1}{2}\sigma\sqrt{\tau}	
+\end{equation}
+\newline
+
+Por tanto tenemos que
+\newline
+
+\begin{equation}
+	I_{2} = -\frac{1}{\sqrt{2\pi}}Ke^{-r\tau}\int_{-\infty}^{d_{-}}e^{-\frac{1}{2}x^{2}}dx
+\end{equation}
+\newline
+
+Pero $-\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{d_{-}}e^{-\frac{1}{2}x^{2}}dx$ es la funci\'{o}n distribuci\'{o}n normal est\'{a}ndar
+de $d_{-}$. Finalmente queda:
+\newline
+
+\begin{equation}
+	I_{2} = -Ke^{-r\tau}\Phi\left(d_{-}\right)
+\end{equation}
+
+S\'{o}lo queda calcular $I_{1}$ para obtener el precio de la opci\'{o}n. En $(13)$ se ve claramente que $x^{2}-2\sigma\sqrt{\tau}x+
+\sigma^{2}\tau=\left(x-\sigma\sqrt{\tau}\right)^{2}$, quedando:
+\newline
+
+\begin{equation}
+	I_{1} = \frac{1}{\sqrt{2\pi}}S_{t}e^{-\delta\tau}\int_{x_{0}}^{+\infty}e^{-\frac{1}{2}\left(x-\sigma\sqrt{\tau}\right)^{2}}dx
+\end{equation}
+\newline
+
+En $(18)$ efectuamos el cambio de variable $x^{'}=\left(x-\sigma\sqrt{\tau}\right)$ con $dx^{'}=dx$, pasando a ser el l\'{i}mite 
+inferior de la integral $x_{0}-\sigma\sqrt{\tau}$.
+\newline
+
+\begin{equation}
+	I_{1}  	 =  S_{t}e^{-\delta\tau}\frac{1}{\sqrt{2\pi}}\int_{x_{0}-\sigma\sqrt{\tau}}^{+\infty}
+			e^{-\frac{1}{2}x^{'^{2}}}dx^{'}
+\end{equation}
+\newline
+
+Como $e^{-\frac{1}{2}x^{'^{2}}}$ es una funci\'{o}n par, podemos cambiar los signos y el orden de los l\'{i}mites de integraci\'{o}n. Haciendo
+$d_{+}=-x_{0}+\sigma\sqrt{\tau}$, nos queda
+\newline
+
+\begin{eqnarray}
+	I_{1} & = & S_{t}e^{-\delta\tau}\Phi\left(d_{+}\right) \nonumber \\
+	I_{2} & = & -Ke^{-r\tau}\Phi\left(d_{-}\right) \nonumber \\
+	d_{\pm} & = & \frac{1}{\sigma\sqrt{\tau}}\ln\left(\frac{S_{t}}{Ke^{-\left(r-\delta\right)\tau}}\right)\pm
+			\frac{1}{2}\sigma\sqrt{\tau}
+\end{eqnarray}
+\newline
+
+EL precio de la call europea en tiempo $t$ es:
+\newline
+
+\begin{equation}
+	C\left(S_{t}\right) = S_{t}e^{-\delta\tau}\Phi\left(d_{+}\right) - Ke^{-r\tau}\Phi\left(d_{-}\right)
+\end{equation}
+\newline
+
+Realizando el desarrollo anterior, pero utilizando el payoff de la put en tiempo $T$, $\left[K-S_{T}\right]^{+}$, obtenemos
+la f\'{o}rmula del precio en tiempo $t\leq T$.
+\newline
+\begin{equation}
+	P\left(S_{t}\right) = Ke^{-r\tau}\Phi\left(-d_{-}\right) - S_{t}e^{-\delta\tau}\Phi\left(-d_{+}\right)
 \end{equation}
 
 \end{document}
