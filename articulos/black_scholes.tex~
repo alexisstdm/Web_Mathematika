@@ -247,5 +247,50 @@ la f\'{o}rmula del precio en tiempo $t\leq T$.
 \begin{equation}
 	P\left(S_{t}\right) = Ke^{-r\tau}\Phi\left(-d_{-}\right) - S_{t}e^{-\delta\tau}\Phi\left(-d_{+}\right)
 \end{equation}
+\newline
+
+\section{Cálculo directo de las griegas más importantes}
+\subsection{Delta}
+
+Es la variacioón del precio de la opción frente al subyacente (valor spot). Esto es, la derivada parcial del precio con respecto a 
+$S_{t}$.
+\newline
+
+\section{Cálculo directo de las griegas mas importantes}
+\subsection{Delta $\Delta$}
+
+Es la variación del precio de la opción frente al subyacente (valor spot). Esto es, la derivada parcial del precio con respecto a 
+$S_{t}$.
+\newline
+
+\begin{eqnarray}
+	\Delta\equiv\frac{\partial C}{\partial S_{t}} & = & e^{-\delta\tau}\Phi\left(d_{+}\right) + 
+								S_{t}e^{\-\delta\tau}\Phi^{'}\left(d_{+}\right)
+								\frac{\partial d_{+}}{\partial S_{t}} - Ke^{-r\tau}
+								\Phi^{'}\left(d_{-}\right)\frac{\partial d_{-}}{\partial S_{t}} 
+								\nonumber \\
+					& = & e^{-\delta\tau}\Phi\left(d_{+}\right) + 
+						\frac{1}{S_{t}\sigma\sqrt{\tau}}\left[S_{t}d^{-\delta\tau}
+						\Phi^{'}\left(d_{+}\right)-Ke^{-r\tau}\Phi^{'}\left(d_{-}\right)\right] 
+								\nonumber 
+\end{eqnarray}
+\newline
+
+Para utilizarlo en desarrollos posteriores vamos a demostrar que $S_{t}e^{-\delta\tau}\Phi^{'}\left(d_{+}\right) - 
+Ke^{-r\tau}\Phi^{'}\left(d_{-}\right)$ es identicamente $0$.
+\newline
+
+\begin{eqnarray*}
+	\lefteqn{\frac{1}{\sqrt{2\pi}}\left(S_{t}e^{-\delta\tau-\frac{1}{2}d_{+}^{2}}-Ke^{-r\tau-\frac{1}{2}d_{-}^{2}}\right) =} \\
+	  &  & \frac{1}{\sqrt{2\pi}}\left\{ S_{t}e^{-\delta\tau-\frac{1}{2}\left[\frac{1}{\sigma\sqrt{\tau}}\ln\left(\frac{S_{t}} 
+	{Ke^{-\left(r-\delta\right)\tau}}\right)+\frac{1}{2}\sigma\sqrt{\tau}\right]^{2}} - 
+	 Ke^{-r\tau-\frac{1}{2}\left[\frac{1}{\sigma\sqrt{\tau}}\ln\left(\frac{S_{t}}{Ke^{-\left(r-\delta\right)\tau}}
+	\right)-\frac{1}{2}\sigma\sqrt{\tau}\right]^{2}}\right\} = \\
+	  &  & \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}\left[\frac{1}{\sigma^{2}\tau}\ln^{2}\left(\frac{S_{t}}{Ke^{\left(r-\delta\right)
+	\tau}}\right) + \frac{1}{4}\sigma^{2}\tau\right]}\cdot\left[S_{t}e^{-\delta\tau-\frac{1}{2}\ln\left(\frac{S_{t}}
+	{Ke^{-\left(r-\delta\right)\tau}}\right)}-
+	Ke^{-r\tau+\frac{1}{2}\ln\left(\frac{S_{t}}{Ke^{-\left(r-\delta\right)\tau}}\right)}\right]
+\end{eqnarray*}
+
 
 \end{document}
