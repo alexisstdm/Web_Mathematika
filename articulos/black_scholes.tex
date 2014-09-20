@@ -300,6 +300,67 @@ Por tanto volviendo al c\'{a}lculo de la delta y usando este resultado intermedi
 \begin{equation}
 	\Delta_{c}\equiv\frac{\partial C}{\partial S_{t}} = e^{-\delta\tau}\Phi\left(d_{+}\right)
 \end{equation}
+\newline
 
+\subsection{Gamma}
+El c\'{a}lculo de la Gamma es bastante inmediato, s\'{o}lo hay que volver a derivar la expresi\'{o}n obtenida de la delta, otra vez, con respecto
+a $S_{ŧ}$.
+\newline
 
+\begin{eqnarray}
+	\Gamma \equiv \frac{\partial \Delta_{c}}{\partial S_{t}^{2}} = \frac{\partial^{2}C}{\partial S_{t}^{2}} & = & 
+	e^{-\delta\tau}\Phi^{'}\left(d_{+}\right)\frac{\partial d_{+}}{\partial S_{t}} \nonumber \\
+	& = & \frac{1}{\sigma\sqrt{\tau}}\frac{e^{-\delta\tau}}{S_{t}}\Phi^{'}\left(d_{+}\right)
+\end{eqnarray}
+\newline
+
+\subsection{Vega}
+Es la variaci\'{o}n del precio de la opci\'{o}n con respecto a la volatilidad del subyacente.
+\newline
+
+\begin{eqnarray*}
+	\lefteqn{V \equiv \frac{\partial C}{\partial \sigma} = S_{t}e^{-\delta\tau}\Phi^{'}\left(d_{+}\right)
+	\frac{\partial d_{+}}{\partial \sigma} + Ke^{-r\tau}\Phi^{'}\left(d_{-}\right) = } \\
+	 & & S_{t}e^{-\delta\tau}\Phi^{'}\left(d_{+}\right)\cdot\left[-\frac{1}{\sigma^{2}\sqrt{\tau}}\ln\left(\frac{S_{t}}
+	{Ke^{-\left(r-\delta\right)\tau}}\right)+\frac{1}{2}\sqrt{\tau}\right] -  \\
+	 & & Ke^{-r\tau}\Phi^{'}\left(d_{-}\right)\cdot\left[-\frac{1}{\sigma^{2}\sqrt{\tau}}\ln\left(\frac{S_{t}}
+	{Ke^{-\left(r-\delta\right)\tau}}\right)-\frac{1}{2}\sqrt{\tau}\right] = \\
+	 & & -\frac{1}{\sigma^{2}\sqrt{\tau}}\ln\left(\frac{S_{t}}{Ke^{-\left(r-\delta\right)\tau}}\right)\cdot
+	\underbrace{\left(S_{t}e^{-\delta\tau}\Phi^{'}\left(d_{+}\right)-Ke^{-r\tau}\Phi\left(d_{-}\right)\right)}_{=0} + \\
+	 & & \frac{1}{2}\sqrt{\tau}\left(S_{t}e^{-\delta\tau}\Phi^{'}\left(d_{+}\right) + 
+	Ke^{-r\tau}\Phi^{'}\left(d_{-}\right)\right)
+\end{eqnarray*}
+\newline
+
+Por tanto la vega es igual a:
+\newline
+
+\begin{equation}
+	 V \equiv \frac{\partial C}{\partial\sigma} = \frac{1}{2}\sqrt{\tau}\left(S_{t}e^{-\delta\tau}\Phi^{'}\left(d_{+}\right)+
+		Ke^{-r\tau}\Phi^{'}\left(d_{-}\right)\right)
+\end{equation}
+\newline
+
+Vamos a desarrollora el resultado anterior para simplificar la expresi\'{o}n de la vega. Para ello vamos a utilizar
+$S_{t}e^{-\delta\tau}\Phi^{'}\left(d_{+}\right)+Ke^{-r\tau}\Phi^{'}\left(d_{-}\right) = 0$ demostrado l\'{i}neas arriba, en el c\'{a}lculo
+de la delta.
+\newline
+
+\begin{eqnarray}
+	\lefteqn{\frac{1}{2}\sqrt{\tau}\left(S_{t}e^{-\delta\tau}\Phi^{'}\left(d_{+}\right) + 
+	Ke^{-r\tau}\Phi^{'}\left(d_{-}\right)\right) = } \nonumber \\
+	 & & \frac{1}{2}\sqrt{\tau}\left\{\left[S_{t} e^{-\delta\tau}\Phi^{'}\left(d_{+}\right) + 
+	Ke^{-r\tau}\Phi^{'}\left(d_{-}\right)\right] + \underbrace{\left[S_{t} e^{-\delta\tau}\Phi^{'}\left(d_{+}\right) -
+	Ke^{-r\tau}\Phi^{'}\left(d_{-}\right)\right]}_{=0}\right\} = \nonumber \\
+	 & & S_{t}\sqrt{\tau}\Phi^{'}\left(d_{+}\right)e^{-\delta\tau} \nonumber
+\end{eqnarray}
+\newline
+
+Por tanto la Vega vale.
+\newline
+
+\begin{equation}
+	V \equiv \frac{\partial C}{\partial\sigma} = S_{t}\sqrt{\tau}\Phi^{'}\left(d_{+}\right)e^{-\delta\tau}
+\end{equation}
+ 
 \end{document}
