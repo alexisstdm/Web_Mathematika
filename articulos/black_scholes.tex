@@ -362,5 +362,27 @@ Por tanto la Vega vale.
 \begin{equation}
 	V \equiv \frac{\partial C}{\partial\sigma} = S_{t}\sqrt{\tau}\Phi^{'}\left(d_{+}\right)e^{-\delta\tau}
 \end{equation}
- 
+\newline
+
+\subsection{Rho}
+Representa la sensibilidad del precio de la opci\'{o}n frente a un movimiento en los tipos de inter\'{e}s libres de riesgo.
+\newline
+
+\begin{eqnarray*}
+	\lefteqn{\rho \equiv \frac{\partial C}{\partial r} = S_{t}e^{-\delta\tau}\Phi^{'}\left(d_{+}\right)\frac{\partial d_{+}}
+		{\partial r} - Ke^{-r\tau}\Phi^{'}\left(d_{-}\right)\frac{\partial d_{-}}{\partial r} + \tau K e^{-r\tau}\Phi\left(
+		d_{-}\right) = } \\
+	 & & \frac{\sqrt{\tau}}{\sigma}\underbrace{\left[S_{t}e^{-\delta\tau}\Phi^{'}\left(d_{+}\right)-Ke^{-r\tau}\Phi^{'}\left(
+		d_{-}\right)\right]}_{=0} + \tau K e^{-r\tau}\Phi\left(d_{-}\right) = \\
+	 & & \tau K e^{-r\tau}\Phi\left(d_{-}\right) 
+\end{eqnarray*}
+\newline
+
+Por tanto la rho vale:
+\newline
+
+\begin{equation}
+	\rho = \tau K e^{-r\tau}\Phi\left(d_{-}\right)
+\end{equation}
+
 \end{document}

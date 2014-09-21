@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.7.19)  20 SEP 2014 03:06
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.7.19)  21 SEP 2014 02:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -402,7 +402,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 359--361
 
  []
 
-[7] (./black_scholes.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 364--366
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 368--370
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 378--380
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 381--383
+
+ []
+
+[8] (./black_scholes.aux) ) 
 Here is how much of TeX's memory you used:
  771 strings out of 493304
  10492 string characters out of 6139871
@@ -427,10 +447,10 @@ onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on black_scholes.pdf (7 pages, 191037 bytes).
+Output written on black_scholes.pdf (8 pages, 192859 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
+ 99 PDF objects out of 1000 (max. 8388607)
+ 71 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
