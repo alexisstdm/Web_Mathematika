@@ -384,5 +384,63 @@ Por tanto la rho vale:
 \begin{equation}
 	\rho = \tau K e^{-r\tau}\Phi\left(d_{-}\right)
 \end{equation}
+\newline
+
+\subsection{Theta}
+Representa la variaci\'{o}n del precio de la opci\'{o}n frente a la fecha de valoraci\'{o}n, es decir, la fecha $t$ a la que se fija el precio
+spot, $S_{t}$, del subyacente. Aqu\'{i}, en todo el desarrollo, se asume $\tau\equiv T-t$, que es el tiempo trnascurrido a vencimiento
+de la opci\'{o}n.
+
+Usando la regla de la cadena para el c\'{a}lculo de derivadas, obtenemos el valor de theta $(\theta)$.
+\newline
+
+\begin{equation}
+	\theta \equiv \frac{\partial C}{\partial t} = \frac{\partial C}{\partial \tau} \cdot \frac{\partial \tau}{\partial t}
+\end{equation}
+\newline
+
+
+Vamos a calcular en primer lugar:
+\newline
+
+\begin{eqnarray}
+	\lefteqn{\frac{\partial C}{\partial \tau} = -\delta S_{t}e^{-\delta\tau}\Phi\left(d_{+}\right)+S_{t}e^{-\delta\tau}\Phi
+		^{'}\left(d_{+}\right)\frac{\partial d_{+}}{\partial \tau} - } \nonumber \\
+	 & & - Ke^{-r\tau}\Phi^{'}\left(d_{-}\right)\frac{\partial d_{-}}{\partial \tau} + Ke^{-r\tau}\Phi\left(d_{-}\right)
+\end{eqnarray}
+\newline
+
+Pero recordando cuanto vale $d_{\pm}$, calulando sus derivadas parciales con respecto a $\tau$ y sustituy\'{e}ndolas por su
+valor en la equaci\'{o}n de arriba obtenemos:
+\newline
+
+\begin{eqnarray*}
+	\lefteqn{\frac{\partial C}{\partial \tau} = -\delta S_{t}e^{-\delta\tau}\Phi\left(d_{+}\right) +} \\
+	 & & \left[-\frac{1}{2\sigma\tau\sqrt{\tau}}\ln\left(\frac{S_{t}}{Ke^{-\left(r-\delta\right)\tau}}\right) + 
+		\frac{1}{\sigma\sqrt{\tau}}\left(r-\delta\right)\right]\cdot\underbrace{\left[S_{t}e^{-\delta\tau}\Phi^{'}
+		\left(d_{+}\right)-Ke^{-r\tau}\Phi^{'}\left(d_{-}\right)\right]}_{=0} + \\
+	 & & \frac{1}{4\sqrt{\tau}}\sigma\underbrace{\left[S_{t}e^{-\delta\tau}\Phi^{'}\left(d_{+}\right) + Ke^{-r\tau}\Phi^{'}\left(
+		d_{-}\right)\right]}_{2S_{t}\Phi^{'}\left(d_{+}\right)e^{-\delta\tau}} + \\
+	 & & + Kre^{-r\tau}\Phi\left(d_{-}\right)
+\end{eqnarray*}
+
+Finalmente multiplicando por -1 y sacando factor com\'{u}n de las cantidades que se repiten en cada t\'{e}rmino tenemos:
+
+\begin{equation}
+	\theta \equiv \frac{\partial C}{\partial t} = \left[\delta\Phi\left(d_{+}\right)-\frac{\sigma}{2\sqrt{\tau}}\Phi^{'}
+		\left(d_{+}\right)\right]S_{t}e^{-\delta\tau}\Phi\left(d_{-}\right)
+\end{equation}
+
+\subsection{Griegas principales para las opciones de tipo put}
+De la misma forma se pueden obtener las griegas m\'{a}s importantes para las opciones de tipo put.
+
+\begin{eqnarray}
+	\Delta & = & e^{-\delta\tau}\left(\Phi\left(d_{+}\right)-1\right) \\
+	\Gamma & = & \frac{1}{\sigma S_{t}\sqrt{\tau}}e^{-\delta\tau}\Phi^{'}\left(d_{+}\right) \\
+	V      & = & S_{t}\sqrt{\tau}e^{-\delta\tau}\Phi^{'}\left(d_{+}\right) \\
+	\rho   & = & -K\tau e^{-r\tau}\Phi\left(-d_{-}\right) \\
+	\theta & = & -\frac{\sigma S_{t}}{2\sqrt{\tau}}e^{-\delta\tau}\Phi^{'}\left(-d_{+}\right) - \delta S_{t}e^{-\delta\tau}
+			\Phi\left(-d_{+}\right) + rKe^{-r\tau}\Phi\left(-d_{-}\right)
+\end{eqnarray}
 
 \end{document}
