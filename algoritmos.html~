@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<HTML lang="es">
+	<HEAD>
+		<meta characterset="utf-8">
+		<meta name="description" content="Web sobre matem&aacuteticas con algoritmos de c&aacutelculo num&eacuterico">
+		<meta name="keywords" content="Matem&aacutetica C&aacutelculo Num&eacuterico Papers Matem&aacuteticos Algoritmos">
+		<title>Mathematika</title>
+		<link rel="stylesheet" href="estilos_index.css">
+	</HEAD>
+	<BODY>
+		<!-- <script>
+  			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  			ga('create', 'UA-54159225-1', 'auto');
+  			ga('send', 'pageview');
+
+		</script> -->
+		<DIV id="caja_principal">
+		<HEADER id="cabecera">
+			<H1>Mathematika</H1>
+			<H2>Algoritmos on-line de C&aacutelculo Num&eacuterico</H2>
+		</HEADER>
+		<NAV id="menu">
+			<ul>
+				<li><A class="blanco" HREF="index.html">Inicio</A></li>
+				<li><A class="blanco" HREF="articulos.html">Art&iacuteculos</A></li>
+				<li><A class="blanco" HREF="algoritmos.html">Algoritmos</A></li>
+				<li><A class="blanco" HREF="referencias.html">Referencias</A></li>
+			</ul>
+		</NAV>
+		<SECTION>
+			<ARTICLE>
+				<HEADER>
+					<HGROUP>
+						<H1>Algoritmos</H1>
+					</HGROUP>
+				</HEADER>
+			</ARTICLE>
+			<ARTICLE>
+				<HEADER>
+					<HGROUP>
+						<H2>C&aacutelculo de ceros de funciones</H2>
+						<H3><A class="negro" 
+							HREF="biseccion.html">M&eacutetodo de la Bisecci&oacuten</A></H3>
+					</HGROUP>
+				</HEADER>
+				<P>El m&eacutetodo de la bisecci&oacuten busca ceros de la funci&oacuten 
+				en un determinado intervalo, usando el
+				hecho de que en los extremos del intervalo el signo de la funci&oacuten es distinto. Se divide en 
+				intervalo en dos subintervalos por el punto medio. Se verfica en cu&aacutel de los subintervalos 
+				se cumple que el valor de la funci&oacuten es de distinto signo en los extremos. Procede a dividir 
+				el subintervalo en dos. As&iacute, recursivamente, 
+				nos vamos quedando con intervalos m&aacutes y m&aacutes
+				peque&ntildeos, hasta que su longitud es menor que el error admisible, que es cuando podemos 
+				afirmar que la funci&oacuten presenta un cero en cualquiera de los dos extremos del subintervalo
+				resultante con un error menor que el prefijado como admisible.</P>
+			</ARTICLE>
+			<ARTICLE>
+				<HEADER>
+					<HGROUP>
+						<H2>C&aacutelculo de Integral Darboux de funciones</H2>
+						<H3><A class="negro" 
+							HREF="integral.html">Integral Darboux</A></H3>
+					</HGROUP>
+				</HEADER>
+				<P>El m&eacutetodo de integraci&oacuten por sumas de Darboux aproxima el c&aacutelculo del &aacuterea 
+				comprendido por la curva de la funci&oacuten y el eje de abcisas, por rect&aacutengulos de  
+				altura el valor de la funci&oacuten en los puntos de la partici&oacuten del intervalo, y base
+				la longitud de los segmentos en que queda dividido el intervalo de integraci&oacuten.
+				</P>
+			</ARTICLE>
+			<ARTICLE>
+				<HEADER>
+					<HGROUP>
+						<H2>C&aacutelculo de precio de opciones mediante la f&oacutermuila de Black-Scholes</H2>
+						<H3><A class="negro" 
+							HREF="black_scholes.html">Black-Scholes</A></H3>
+					</HGROUP>
+				</HEADER>
+				<P>Calcula el precio de opciones europeas plain vanilla, de tipo call o put mediante la f&oacutermula
+			           de Black-Scholes. Esta calculadora se proporciona como caso de aplicaci&oacuten pr&aacutectica de los 
+			           algoritmos de integraci&oacuten. Concretamente usamos en la integraci&oacuten de la curva de Gauss el
+			           esquema de Simpson de segundo grado.
+				</P>
+			</ARTICLE>
+		</SECTION>
+		<FOOTER id="pie">
+			Alexis S&aacutenchez Tello de Meneses. 
+			<A HREF="http://es.linkedin.com/pub/alexis-s%C3%A1nchez-tello-de-meneses/1a/95/b3" 
+					target="_blank">Ver perfil.</A>
+			<A HREF="https://github.com/alexisstdm/Web_Mathematika" target="_blank">Contribuir en gitHub</A>
+		</FOOTER>
+		</DIV>
+	</BODY>
+</HTML>

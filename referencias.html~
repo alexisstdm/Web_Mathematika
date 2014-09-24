@@ -35,39 +35,16 @@
 			<ARTICLE>
 				<HEADER>
 					<HGROUP>
-						<H1>Art&iacuteculos</H1>
+						<H1>Referencias</H1>
 					</HGROUP>
 				</HEADER>
-			</ARTICLE>
-			<ARTICLE>
-				<HEADER>
-					<HGROUP>
-						<H2>F&oacutermulas de Black-Scholes. Deducci&oacuten</H2>
-						<H3><A class="negro" HREF="articulos/black_scholes.pdf" target="_blank">
-							Obtenci&oacuten de las f&oacutermulas de Black-Scholes</A>
-						<A HREF="articulos/black_scholes.pdf" target="_blank">
-						<img src="imagenes/pdficon_large.png"></A></H3>
-					</HGROUP>
-				</HEADER>
-				<P>Se desarrollar&aacute a partir del modelo de evoluci&oacuten para un subyacente,
- 				las f&oacutermulas de Black-Scholes para el precio de opciones plain vanilla (call/put) europeas, 
-				as&iacute mismo, mediante derivaci&oacuten directa de las 
-				f&oacutermulas con respecto a sus par&aacutemetros
-				obtendremos las griegas m&aacutes representativas.</P>
 			</ARTICLE>
 		</SECTION>
 		<FOOTER id="pie">
 			Alexis S&aacutenchez Tello de Meneses. 
 			<A HREF="http://es.linkedin.com/pub/alexis-s%C3%A1nchez-tello-de-meneses/1a/95/b3" 
-					target="_blank">Ver perfil.</A>&nbsp&nbsp&nbsp
+					target="_blank">Ver perfil.</A>
 			<A HREF="https://github.com/alexisstdm/Web_Mathematika" target="_blank">Contribuir en gitHub</A>
-			<BR><BR>
-			<A HREF="https://github.com/alexisstdm/Web_Mathematika" target="_blank">
-			<img src="imagenes/git_logo.png" height="32px" width="100px">
-			</A>
-			&nbsp&nbsp&nbsp
-			<A HREF="http://www.adobe.com/go/getreader" target="_blank">
-			<img src="imagenes/get_adobe_reader.gif" alt="Adobe Reader"></A>
 		</FOOTER>
 		</DIV>
 	</BODY>
