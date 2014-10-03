@@ -44,20 +44,17 @@ a.negro:hover {
 }
 
 #caja_principal {
-	background: #00BFFF;
+	/* background: #00BFFF; */
+	background: #F9E6BF;
 	width: 960px;
 	margin: 15px auto;
 	text-align: left;
 	font: 16px arial;
-}
-
-#politica_cookies {
-	background: #00005F;
-	color: white;
+	color: #4C7833
 }
 
 #cabecera {
-	background: #00005F;
+	background: #AB7E03;
 	border: 1px solid #999999;
 	padding: 5px;
 	color: white;

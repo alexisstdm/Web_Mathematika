@@ -19,7 +19,7 @@ a.blanco:link {
 }
 
 a.negro:link {
-	color: black;
+	color: #4C7833;
 	text-decoration: none;
 }
 
@@ -29,7 +29,7 @@ a.blanco:visited {
 }
 
 a.negro:visited {
-	color: black;
+	color: #4C7833;
 	text-decoration: none;
 }
 
@@ -39,20 +39,22 @@ a.blanco:hover {
 }
 
 a.negro:hover {
-	color: black;
+	color: #4C7833;
 	text-decoration: underline;
 }
 
 #caja_principal {
-	background: #00BFFF;
+	/* background: #00BFFF; */
+	background: #F9E6BF;
 	width: 960px;
 	margin: 15px auto;
 	text-align: left;
 	font: 16px arial;
+	color: #304B20;
 }
 
 #cabecera {
-	background: #00005F;
+	background: #AB7E03;
 	border: 1px solid #999999;
 	padding: 5px;
 	color: white;
@@ -88,7 +90,7 @@ p {
 	margin: 20px 0px;
 	padding: 20px;
 	font: 12px verdana, arial;
-	color: #004F00;
+	color: #EF6439;
 	text-align: left;
 }
 
