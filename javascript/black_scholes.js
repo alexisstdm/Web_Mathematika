@@ -74,8 +74,8 @@ function greeksBlackScholes(spot, strike, maturity, volatility, rate, dividend_r
 		if (type == "call"){
 	  	 	resultado["delta"] = Math.exp(-dividend_rate * maturity) * normal_dist(d_plus);
 	   		resultado["vega"] = spot * Math.sqrt(maturity) * Math.exp(-dividend_rate * maturity) * normal_density(d_plus);
-	   		resultado["theta"] = strike * Math.exp(-rate * maturity) * rate * normal_dist(d_minus) + 
-				spot * Math.exp(-dividend_rate * maturity) * (-dividend_rate * normal_dist(d_plus) +
+	   		resultado["theta"] = -strike * Math.exp(-rate * maturity) * rate * normal_dist(d_minus) + 
+				spot * Math.exp(-dividend_rate * maturity) * (dividend_rate * normal_dist(d_plus) -
 								volatility/(2.0 * Math.sqrt(maturity)) * normal_density(d_plus))
 	   		resultado["rho"] = strike * maturity * Math.exp(-rate * maturity) * normal_dist(d_minus);
 	   		resultado["dividend_delta"] = -spot * maturity * Math.exp(-dividend_rate * maturity) * normal_dist(d_plus);
@@ -83,8 +83,8 @@ function greeksBlackScholes(spot, strike, maturity, volatility, rate, dividend_r
 		else if (type == "put"){
 	   		resultado["delta"] = Math.exp(-dividend_rate * maturity) * (normal_dist(d_plus) - 1);
 	   		resultado["vega"] = spot * Math.sqrt(maturity) * Math.exp(-dividend_rate * maturity) * normal_density(d_plus);
-	   		resultado["theta"] = -strike * Math.exp(-rate * maturity) * rate * normal_dist(-d_minus) + 
-				spot * Math.exp(-dividend_rate * maturity) * (dividend_rate * normal_dist(-d_plus) -
+	   		resultado["theta"] = strike * Math.exp(-rate * maturity) * rate * normal_dist(-d_minus) - 
+				spot * Math.exp(-dividend_rate * maturity) * (dividend_rate * normal_dist(-d_plus) +
 								volatility/(2.0 * Math.sqrt(maturity)) * normal_density(-d_plus))
 	   		resultado["rho"] = -strike * maturity * Math.exp(-rate * maturity) * normal_dist(-d_minus);
 	   		resultado["dividend_delta"] = spot * maturity * Math.exp(-dividend_rate * maturity) * normal_dist(-d_plus);
