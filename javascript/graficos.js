@@ -47,7 +47,7 @@ function grafica_funcion(id_canvas, puntos, borrar){
 	for (var i=0; i<4; i++){
 		ventana.fillText(new String((valor_minimo_abcisa+i*incremento_horizontal).toFixed(2)), margen_horizontal+i*delta_x,
 						altura-margen_vertical+12);
-		ventana.fillText(new String((valor_minimo_ordenada+i*incremento_horizontal).toFixed(2)), 2,
+		ventana.fillText(new String((valor_minimo_ordenada+i*incremento_vertical).toFixed(2)), 2,
 						altura-margen_vertical-i*delta_y+12);
 		ventana.beginPath();
 		ventana.moveTo(margen_horizontal+i*delta_x, altura-margen_vertical);
