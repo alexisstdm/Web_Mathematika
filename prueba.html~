@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<HTML lang="es">
+	<HEAD>
+		<meta characterset="utf-8">
+		<meta name="description" content="Web sobre matem&aacute;ticas con algoritmos de c&aacute;lculo num&eacute;rico">
+		<meta name="keywords" content="Matem&aacute;tica C&aacute;lculo Num&eacute;rico Papers Matem&aacute;ticos Algoritmos">
+		<title>Mathematika</title>
+		<link rel="stylesheet" href="estilos_index.css">
+		<SCRIPT TYPE="javascript">
+		//función para añadir telefonos a la lista
+		function addT() {
+			var newitem=prompt("Añadir teléfono:");
+			document.form.telefonos[document.form.telefonos.length] = new Option("Prueba", 
+											document.form.telefonos.length);
+		}
+
+		//función para borrar telefonos de la lista
+		function delT() {
+		if (document.form.telefonos.selectedIndex >= 0) {
+			document.form.telefonos.options[document.form.telefonos.selectedIndex]=null;
+			document.form.telefonos.selectedIndex=0;
+		}
+		</SCRIPT>
+	</HEAD>
+<BODY>
+<tr>
+<td><label for="telefonos">Teléfonos:</label>
+<form name="form">
+<select name="telefonos" size="10" disabled>
+</select>
+<input type="button" value="Añadir" onClick="addT()">
+<input type="button" value="Borrar" onClick="delT()"> 
+</form>
+</td>
+</BODY>
+</HTML>

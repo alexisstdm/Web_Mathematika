@@ -12,6 +12,7 @@
 			alert("Prueba evaluador de expresiones");
 			expresion = prompt("Introducir expresion");
 			var P = new Array(2.0, 4.0);
+			valor = construyeFuncion(expresion);
 			valor = construyeFuncion(expresion)(P);
 			alert(new String(valor));
 

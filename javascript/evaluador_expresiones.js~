@@ -40,9 +40,6 @@ function construyeFuncion(expresion){
 					"]");
 			inicio = fin + 2;
 		}
-		else {
-			cuerpo_funcion = cuerpo_funcion.concat(expresion.substring(inicio, expresion.length));
-		}
 	}
 	
 	var funcion = new String("(function(Parametros){ return ");
