@@ -3,7 +3,7 @@
 	<HEAD>
 		<SCRIPT TYPE="text/javascript" SRC="javascript/evaluador_expresiones.js">
 		</SCRIPT>
-		<SCRIPT TYPE="text/javascript" SRC="javascript/biseccion.js">
+		<SCRIPT TYPE="text/javascript" SRC="javascript/powell.js">
 		</SCRIPT>
 		<meta charset="utf-8">
 		<meta name="description" content="Optimización de funciones por el método de Powell">
@@ -37,7 +37,60 @@
 			<SECTION id="area_principal">
 				<SCRIPT TYPE="text/javascript">
 					function on_click_calcular(){
-						var funcion = document.formularioBiseccion.funcion.value;
+						
+						//
+						//  Parseamos los límites entre los que buscar el mínimo de la función objetivo
+						var limitesSelect = document.getElementById("conjunto_cotas");
+						var limites = new Array();
+						
+						for (var i = 0; i < limitesSelect.length; i++){
+							var inicio = new Number(limitesSelect[i].substring(0,limitesSelect[i].indexOf(" "))); 
+							var fin = new Number(limitesSelect[i].substring(limitesSelect[i].indexOf(" "),limitesSelect[i].length));
+							var intervalo = new Intervalo(inicio, fin, true, true);
+							limites.push(intervalo);
+						}
+						
+						//
+						//  Parseamos la funcion objetivo
+						var funcionObjetivo = construyeFuncion(document.getElementById("funcion").value);
+
+						//
+						//  Parseamos el punto inicial
+						var anterior = 0;
+						var actual = 0;
+						var punto_inicial = new Array();
+						var punto_inicial_str = document.getElementById("puntoInicial").value;
+						
+						actual = punto_inicial_str.indexOf(anterior, ",");
+						while (actual>=0){
+							punto_inicial.push(new Number(punto_inicial_str.substring(anterior, punto_inicial_str.indexOf(","))));
+							actual = punto_inicial_str.indexOf(anterior, ",");
+							if (actual >= 0){
+								anterior = actual + 1;
+							}
+						}
+
+						if (punto_inicial_str != "")
+							punto_inicial.push(punto_inicial_str.substring(anterior, punto_inicial_str.length));
+						
+						//
+						//  Parseamos las direcciones iniciales de búsqueda
+						var base = new Array();
+						for (var i = 0; i < limites.length, i++){
+							var vector_base = new Array();
+							for (var j = 0; j < limites.length, j++)
+								if (j==i) vector_base.push(1.0);
+								else vector_base.push(0.0);
+							base.push(vector_base);
+						}	
+						
+						var minimo = powell_algorithm(funcionObjetivo, punto_inicial, base, limites, 0.001, 100);
+						
+						//
+						//  Parseamos resultado
+						for (var i = 0; i < minimo.length; i++)
+							document.getElementById("resultado").add(new String(minimo[i]));
+
 						var cotaInferior = new Number(document.formularioBiseccion.cotaInferior.value);
 						var cotaSuperior = new Number(document.formularioBiseccion.cotaSuperior.value);
 						document.formularioPowell.resultado.value = new String(
@@ -95,6 +148,17 @@
 							<TD><INPUT TYPE="button" ID="Agregar" 
 								NAME="Agregar" VALUE="Agregar" 
 								ONCLICK="on_click_agregar();"></TD>
+						</TR>
+					</TABLE>
+					<TABLE>
+						<TR>
+							<TD>
+								Punto inicial
+							</TD>
+							<TD>
+								<INPUT TYPE="text" ID="puntoInicial" NAME="puntoInicial" MAXLENGTH="40"
+								 SIZE="40">
+							</TD>
 						</TR>
 					</TABLE>
 					<BR><BR>
