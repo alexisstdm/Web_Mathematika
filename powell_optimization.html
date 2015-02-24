@@ -37,15 +37,14 @@
 			<SECTION id="area_principal">
 				<SCRIPT TYPE="text/javascript">
 					function on_click_calcular(){
-						
 						//
 						//  Parseamos los límites entre los que buscar el mínimo de la función objetivo
 						var limitesSelect = document.getElementById("conjunto_cotas");
 						var limites = new Array();
 						
 						for (var i = 0; i < limitesSelect.length; i++){
-							var inicio = new Number(limitesSelect[i].substring(0,limitesSelect[i].indexOf(" "))); 
-							var fin = new Number(limitesSelect[i].substring(limitesSelect[i].indexOf(" "),limitesSelect[i].length));
+							var inicio = new Number(limitesSelect[i].text.substring(0,limitesSelect[i].text.indexOf(" "))); 
+							var fin = new Number(limitesSelect[i].text.substring(limitesSelect[i].text.indexOf(" "),limitesSelect[i].length));
 							var intervalo = new Intervalo(inicio, fin, true, true);
 							limites.push(intervalo);
 						}
@@ -76,9 +75,9 @@
 						//
 						//  Parseamos las direcciones iniciales de búsqueda
 						var base = new Array();
-						for (var i = 0; i < limites.length, i++){
+						for (var i = 0; i < limites.length; i++){
 							var vector_base = new Array();
-							for (var j = 0; j < limites.length, j++)
+							for (var j = 0; j < limites.length; j++)
 								if (j==i) vector_base.push(1.0);
 								else vector_base.push(0.0);
 							base.push(vector_base);
@@ -88,8 +87,11 @@
 						
 						//
 						//  Parseamos resultado
-						for (var i = 0; i < minimo.length; i++)
-							document.getElementById("resultado").add(new String(minimo[i]));
+						for (var i = 0; i < minimo.length; i++){
+							var nueva_option = document.createElement("option");
+							nueva_option.text = new String(minimo[i]);
+							document.getElementById("resultado").add(nueva_option);
+						}
 
 						var cotaInferior = new Number(document.formularioBiseccion.cotaInferior.value);
 						var cotaSuperior = new Number(document.formularioBiseccion.cotaSuperior.value);

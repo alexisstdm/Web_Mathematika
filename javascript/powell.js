@@ -1,14 +1,14 @@
-function Intervalo(inicial, final, incluido_inicial, incluido_final){
-	this._inicial = inicial;
-	this._final = final;
-	this._incluido_inicial = incluido_inicial;
-	this._incluido_final = incluido_final;
+function Intervalo(inicio, fin, incluido_inicio, incluido_fin){
+	this._inicio = inicio;
+	this._fin = fin;
+	this._incluido_inicio = incluido_inicio;
+	this._incluido_fin = incluido_fin;
 	this.is_in_interval = function(numero_real){
-			if (numero_real > this._final || numero_real < this._inicial) return false;
+			if (numero_real > this._fin || numero_real < this._inicio) return false;
 			else 
-				if (numero_real = this._inicial && !(this._incluido_inicial)) return false;
+				if (numero_real = this._inicio && !(this._incluido_inicio)) return false;
 				else 
-					if (numero_real = this._final && !(this._incluido_final)) return false;
+					if (numero_real = this._fin && !(this._incluido_fin)) return false;
 					else return false;				 			     
 		}
 }
@@ -22,28 +22,30 @@ function calcula_limites_parametro(P, v, limites){
 
 	for (var i = 0; i < limites.length; i++){
 		if (v[i] != 0.0) {
-			 intervalo._inicial = (limites[i]._inferior - P[i])/v[i];
-		         intervalo._final = (limitess[i]._superior - P[i])/v[i];
+			 intervalo._inicio = (limites[i]._inferior - P[i])/v[i];
+		         intervalo._fin = (limitess[i]._superior - P[i])/v[i];
 			 if (v[i]>0) {	
-				if ((intervalo._inicial > intervalo_resultado._inicial) || primera_vez) {
-					intervalo_resultado._inicial = intervalo._inicial;
+				if ((intervalo._inicio > intervalo_resultado._inicio) || primera_vez) {
+					intervalo_resultado._inicio = intervalo._inicio;
 				}
-				if ((intervalo._final < intervalo_resultado._final) || primera_vez) {
-					intervalo_resultado._final = intervalo._final;
+				if ((intervalo._fin < intervalo_resultado._fin) || primera_vez) {
+					intervalo_resultado._fin = intervalo._fin;
 				}
 			}
 			else {
-				if ((intervalo._inicial < intervalo_resultado._final) || primera_vez) {
-					intervalo_resultado._final = intervalo._inicial;
+				if ((intervalo._inicio < intervalo_resultado._fin) || primera_vez) {
+					intervalo_resultado._fin = intervalo._inicio;
 				}
-				if ((intervalo._final > intervalo_resultado._inicial) || primera_vez) {
-					intervalo_resultado._inicial = intervalo._final;
+				if ((intervalo._fin > intervalo_resultado._inicio) || primera_vez) {
+					intervalo_resultado._inicio = intervalo._fin;
 				}
 			}
+		}
 	}
 
 	return intervalo_resultado;		
 }
+
 
 function directional_func_min(funcion, comienzo, fin, tol){
 	var PHI = (1.0 + Math.sqrt(5.0))/2.0;
@@ -62,9 +64,9 @@ function directional_func_min(funcion, comienzo, fin, tol){
 		var nuevo = 0.0 ;
 
 		if (primer_subintervalo) nuevo = x0 + (x1 - x0) * (PHI - 1.0);
-		else nuevo = x2 - (x2 - x1) * (PHI - 1));
+		else nuevo = x2 - (x2 - x1) * (PHI - 1.0);
 
-          	var f_nuevo = funcion(nuevo);
+        var f_nuevo = funcion(nuevo);
 
 		if (primer_subintervalo){
                 	x2 = x1;
@@ -108,7 +110,7 @@ function powell_algorithm(funcion, Punto, direcciones, limites, error, maximo_it
 			var x_limites = calcula_limites_parametro(P, direcciones[pos], limites);
 			
 			direccion = direcciones[pos];
-			var parametro_min = directional_func_min(funcion_direccional, x_limites[_inicial], x_limites[_final], error);
+			var parametro_min = directional_func_min(funcion_direccional, x_limites[_inicio], x_limites[_fin], error);
 			
 			for (var j = 0; j < P.length; j++)
 				P[j] = P[j] + parametro_min * direcciones[pos][j];
@@ -142,12 +144,12 @@ function powell_algorithm(funcion, Punto, direcciones, limites, error, maximo_it
 		
 		var x_limites = calcula_limites_parametro(P, nueva_direccion, limites);	
 		direccion = nueva_direccion;
-		var parametro_min = directional_func_min(funcion_direccional, x_limites[_inicial], x_limites[_final], error);
+		var parametro_min = directional_func_min(funcion_direccional, x_limites[_inicio], x_limites[_fin], error);
 		
 		for (var j = 0; j < P.length; j++)
 			P[j] = P[j] + parametro_min * nueva_direccion[j];
 
-		for (var j = 0; j < direcciones.length, j++)
+		for (var j = 0; j < direcciones.length; j++)
 			if (j == pos_cambio) direcciones[j] = nueva_direccion;
 	}
 	return P	
