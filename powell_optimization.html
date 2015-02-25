@@ -43,8 +43,10 @@
 						var limites = new Array();
 						
 						for (var i = 0; i < limitesSelect.length; i++){
-							var inicio = new Number(limitesSelect[i].text.substring(0,limitesSelect[i].text.indexOf(" "))); 
-							var fin = new Number(limitesSelect[i].text.substring(limitesSelect[i].text.indexOf(" "),limitesSelect[i].length));
+							var inicio = new Number(limitesSelect[i].text.substring(0,
+										limitesSelect[i].text.indexOf(" "))); 
+							var fin = new Number(limitesSelect[i].text.substring(
+									limitesSelect[i].text.indexOf(" "),limitesSelect[i].length));
 							var intervalo = new Intervalo(inicio, fin, true, true);
 							limites.push(intervalo);
 						}
@@ -60,17 +62,18 @@
 						var punto_inicial = new Array();
 						var punto_inicial_str = document.getElementById("puntoInicial").value;
 						
-						actual = punto_inicial_str.indexOf(anterior, ",");
 						while (actual>=0){
-							punto_inicial.push(new Number(punto_inicial_str.substring(anterior, punto_inicial_str.indexOf(","))));
-							actual = punto_inicial_str.indexOf(anterior, ",");
+							actual = punto_inicial_str.indexOf(",", anterior);
 							if (actual >= 0){
+								punto_inicial.push(new Number(punto_inicial_str.substring(anterior, 
+											punto_inicial_str.indexOf(",", anterior))));
 								anterior = actual + 1;
 							}
 						}
 
 						if (punto_inicial_str != "")
-							punto_inicial.push(punto_inicial_str.substring(anterior, punto_inicial_str.length));
+							punto_inicial.push(new Number(punto_inicial_str.substring(anterior, 
+											punto_inicial_str.length)));
 						
 						//
 						//  Parseamos las direcciones iniciales de búsqueda
@@ -83,7 +86,8 @@
 							base.push(vector_base);
 						}	
 						
-						var minimo = powell_algorithm(funcionObjetivo, punto_inicial, base, limites, 0.001, 100);
+						var minimo = powell_algorithm(funcionObjetivo, punto_inicial, base, limites, 
+															0.001, 1000);
 						
 						//
 						//  Parseamos resultado

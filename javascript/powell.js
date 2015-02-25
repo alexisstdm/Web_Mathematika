@@ -22,8 +22,8 @@ function calcula_limites_parametro(P, v, limites){
 
 	for (var i = 0; i < limites.length; i++){
 		if (v[i] != 0.0) {
-			 intervalo._inicio = (limites[i]._inferior - P[i])/v[i];
-		         intervalo._fin = (limitess[i]._superior - P[i])/v[i];
+			 intervalo._inicio = (limites[i]._inicio - P[i])/v[i];
+		         intervalo._fin = (limites[i]._fin - P[i])/v[i];
 			 if (v[i]>0) {	
 				if ((intervalo._inicio > intervalo_resultado._inicio) || primera_vez) {
 					intervalo_resultado._inicio = intervalo._inicio;
@@ -70,19 +70,19 @@ function directional_func_min(funcion, comienzo, fin, tol){
 
 		if (primer_subintervalo){
                 	x2 = x1;
-                	fx2 = fx1;
+                	f2 = f1;
 		}
              	else {
                 	x0 = x1;
-                	fx0 = fx1;
+                	f0 = f1;
 		}
 	
-          	if (f_nuevo >= fx1) primer_subintervalo = !primer_subintervalo;
+          	if (f_nuevo >= f1) primer_subintervalo = !primer_subintervalo;
              		
           	x1 = nuevo;
-          	fx1 = f_nuevo; 
+          	f1 = f_nuevo; 
 	}
-	return new array(x1, fx1);
+	return new Array(x1, f1);
 }
 
 function powell_algorithm(funcion, Punto, direcciones, limites, error, maximo_iteraciones){
@@ -93,6 +93,7 @@ function powell_algorithm(funcion, Punto, direcciones, limites, error, maximo_it
 	while (i < maximo_iteraciones){
 		var max_dec = 0.0;
 		var funcion_P = funcion(P);
+		var funcion_P_nueva = 0;
 		var _P = new Array();
 		var pos_cambio = 0;
 		
@@ -101,6 +102,7 @@ function powell_algorithm(funcion, Punto, direcciones, limites, error, maximo_it
 		var direccion = new Array();
 
 		function funcion_direccional(parametro){
+			var x = new Array();
 			for (var j = 0; j < P.length; j++)
 				x.push(P[j] + parametro * direccion[j]);
 			return funcion(x);
@@ -110,10 +112,10 @@ function powell_algorithm(funcion, Punto, direcciones, limites, error, maximo_it
 			var x_limites = calcula_limites_parametro(P, direcciones[pos], limites);
 			
 			direccion = direcciones[pos];
-			var parametro_min = directional_func_min(funcion_direccional, x_limites[_inicio], x_limites[_fin], error);
+			var parametro_min = directional_func_min(funcion_direccional, x_limites["_inicio"], x_limites["_fin"], error);
 			
 			for (var j = 0; j < P.length; j++)
-				P[j] = P[j] + parametro_min * direcciones[pos][j];
+				P[j] = P[j] + parametro_min[0] * direcciones[pos][j];
 			funcion_P_nueva = funcion(P);
 
 			if (Math.abs(funcion_P_nueva - funcion_P) > max_dec){
@@ -144,13 +146,15 @@ function powell_algorithm(funcion, Punto, direcciones, limites, error, maximo_it
 		
 		var x_limites = calcula_limites_parametro(P, nueva_direccion, limites);	
 		direccion = nueva_direccion;
-		var parametro_min = directional_func_min(funcion_direccional, x_limites[_inicio], x_limites[_fin], error);
+		var parametro_min = directional_func_min(funcion_direccional, x_limites["_inicio"], x_limites["_fin"], error);
 		
 		for (var j = 0; j < P.length; j++)
-			P[j] = P[j] + parametro_min * nueva_direccion[j];
+			P[j] = P[j] + parametro_min[0] * nueva_direccion[j];
 
 		for (var j = 0; j < direcciones.length; j++)
 			if (j == pos_cambio) direcciones[j] = nueva_direccion;
+		
+		i++;
 	}
 	return P	
 }
