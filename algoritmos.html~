@@ -2,8 +2,8 @@
 <HTML lang="es">
 	<HEAD>
 		<meta characterset="utf-8">
-		<meta name="description" content="Web sobre matem&aacuteticas con algoritmos de c&aacutelculo num&eacuterico">
-		<meta name="keywords" content="Matem&aacutetica C&aacutelculo Num&eacuterico Papers Matem&aacuteticos Algoritmos">
+		<meta name="description" content="Web sobre matem&aacute;ticas con algoritmos de c&aacute;lculo num&eacute;rico">
+		<meta name="keywords" content="Matem&aacute;tica C&aacute;lculo Num&eacute;rico Papers Matem&aacute;ticos Algoritmos">
 		<title>Mathematika</title>
 		<link rel="stylesheet" href="estilos_index.css">
 	</HEAD>
@@ -21,12 +21,12 @@
 		<DIV id="caja_principal">
 		<HEADER id="cabecera">
 			<H1>Mathematika</H1>
-			<H2>Algoritmos on-line de C&aacutelculo Num&eacuterico</H2>
+			<H2>Algoritmos on-line de C&aacute;lculo Num&eacute;rico</H2>
 		</HEADER>
 		<NAV id="menu">
 			<ul>
 				<li><A class="blanco" HREF="index.html">Inicio</A></li>
-				<li><A class="blanco" HREF="articulos.html">Art&iacuteculos</A></li>
+				<li><A class="blanco" HREF="articulos.html">Art&iacute;culos</A></li>
 				<li><A class="blanco" HREF="algoritmos.html">Algoritmos</A></li>
 				<li><A class="blanco" HREF="referencias.html">Referencias</A></li>
 			</ul>
@@ -42,53 +42,82 @@
 			<ARTICLE>
 				<HEADER>
 					<HGROUP>
-						<H2>C&aacutelculo de ceros de funciones</H2>
+						<H2>C&aacute;lculo de ceros de funciones</H2>
 						<H3><A class="negro" 
-							HREF="biseccion.html">M&eacutetodo de la Bisecci&oacuten</A></H3>
+							HREF="biseccion.html">M&eacute;todo de la Bisecci&oacute;n</A></H3>
 					</HGROUP>
 				</HEADER>
-				<P>El m&eacutetodo de la bisecci&oacuten busca ceros de la funci&oacuten 
+				<P>El m&eacute;todo de la bisecci&oacute;n busca ceros de la funci&oacute;n 
 				en un determinado intervalo, usando el
-				hecho de que en los extremos del intervalo el signo de la funci&oacuten es distinto. Se divide en 
-				intervalo en dos subintervalos por el punto medio. Se verfica en cu&aacutel de los subintervalos 
-				se cumple que el valor de la funci&oacuten es de distinto signo en los extremos. Procede a dividir 
-				el subintervalo en dos. As&iacute, recursivamente, 
-				nos vamos quedando con intervalos m&aacutes y m&aacutes
-				peque&ntildeos, hasta que su longitud es menor que el error admisible, que es cuando podemos 
-				afirmar que la funci&oacuten presenta un cero en cualquiera de los dos extremos del subintervalo
+				hecho de que en los extremos del intervalo el signo de la funci&oacute;n es distinto. Se divide en 
+				intervalo en dos subintervalos por el punto medio. Se verfica en cu&aacute;l de los subintervalos 
+				se cumple que el valor de la funci&oacute;n es de distinto signo en los extremos. Procede a dividir 
+				el subintervalo en dos. As&iacute;, recursivamente, 
+				nos vamos quedando con intervalos m&aacute;s y m&aacute;s
+				peque&ntilde;os, hasta que su longitud es menor que el error admisible, que es cuando podemos 
+				afirmar que la funci&oacute;n presenta un cero en cualquiera de los dos extremos del subintervalo
 				resultante con un error menor que el prefijado como admisible.</P>
 			</ARTICLE>
 			<ARTICLE>
 				<HEADER>
 					<HGROUP>
-						<H2>C&aacutelculo de Integral Darboux de funciones</H2>
+						<H2>C&aacute;lculo de Integral Darboux de funciones</H2>
 						<H3><A class="negro" 
 							HREF="integral.html">Integral Darboux</A></H3>
 					</HGROUP>
 				</HEADER>
-				<P>El m&eacutetodo de integraci&oacuten por sumas de Darboux aproxima el c&aacutelculo del &aacuterea 
-				comprendido por la curva de la funci&oacuten y el eje de abcisas, por rect&aacutengulos de  
-				altura el valor de la funci&oacuten en los puntos de la partici&oacuten del intervalo, y base
-				la longitud de los segmentos en que queda dividido el intervalo de integraci&oacuten.
+				<P>El m&eacute;todo de integraci&oacute;n por sumas de Darboux aproxima el c&aacute;lculo del &aacute;rea 
+				comprendido por la curva de la funci&oacute;n y el eje de abcisas, por rect&aacute;ngulos de  
+				altura el valor de la funci&oacute;n en los puntos de la partici&oacute;n del intervalo, y base
+				la longitud de los segmentos en que queda dividido el intervalo de integraci&oacute;n.
 				</P>
 			</ARTICLE>
 			<ARTICLE>
 				<HEADER>
 					<HGROUP>
-						<H2>C&aacutelculo de precio de opciones mediante la f&oacutermuila de Black-Scholes</H2>
+						<H2>C&aacute;lculo de precio de opciones mediante la f&oacute;rmuila de Black-Scholes</H2>
 						<H3><A class="negro" 
 							HREF="black_scholes.html">Black-Scholes</A></H3>
 					</HGROUP>
 				</HEADER>
-				<P>Calcula el precio de opciones europeas plain vanilla, de tipo call o put mediante la f&oacutermula
-			           de Black-Scholes. Esta calculadora se proporciona como caso de aplicaci&oacuten pr&aacutectica de los 
-			           algoritmos de integraci&oacuten. Concretamente usamos en la integraci&oacuten de la curva de Gauss el
+				<P>Calcula el precio de opciones europeas plain vanilla, de tipo call o put mediante la f&oacute;rmula
+			           de Black-Scholes. Esta calculadora se proporciona como caso de aplicaci&oacute;n pr&aacute;ctica de los 
+			           algoritmos de integraci&oacute;n. Concretamente usamos en la integraci&oacute;n de la curva de Gauss el
 			           esquema de Simpson de segundo grado.
+				</P>
+			</ARTICLE>
+			<ARTICLE>
+				<HEADER>
+					<HGROUP>
+						<H2>Minimizaci&oacute;n multidimensional de funciones por el m&eacute;todo de Powell</H2>
+						<H3><A class="negro" 
+							HREF="powell_optimization.html">Algoritmo de Powell</A></H3>
+					</HGROUP>
+				</HEADER>
+				<P>C&aacute;lculo del punto del espacio n-dimensional para el cual una funci&oacute;n 
+				tiene un m&iacute;nimo local.<BR/>
+				A partir de un conjunto de direcciones linealmente independientes que generan el espacio en 
+				el que se encuentra el dominio de la funci&oacute;n, de un conjunto de cotas superiores e inferiores 
+				de cardinalidad igual a la dimensi&oacute;n del espacio que definen el interior de una 
+				regi&oacute;n hiperc&uacute;bica,
+				y a partir de un punto inicial dentro de la regi&oacute;n anterior, 
+				el algoritmo de Powell devuelve el punto
+				de la regi&oacute;n hiperc&uacute;bica de b&uacute;squeda, 
+				para el cual la funci&oacute;n toma un m&iacute;nimo local.<BR/>
+				El algoritmo de Powell va buscando el m&iacute;nimo movi&eacute;ndose 
+				en las direcciones proporcionadas empezando por
+				el punto inicial proporcionado, una vez que nos hemos movido por las direcciones anteriores, 
+				sustituimos la direcci&oacute;n que ha proporcionado el 
+				mayor descenso por la direcci&oacute;n definida por el 
+				vector cuyo origen es el punto inicial y cuyo fin es el punto de llegada resultado de habernos movido
+				por el conjunto de direcciones.<BR/>
+				Este procedimiento se itera y nos movemos desde el punto de llegada por todas las direcciones del
+				nuevo conjunto de direcciones.
 				</P>
 			</ARTICLE>
 		</SECTION>
 		<FOOTER id="pie">
-			Alexis S&aacutenchez Tello de Meneses. 
+			Alexis S&aacute;nchez Tello de Meneses. 
 			<A HREF="http://es.linkedin.com/pub/alexis-s%C3%A1nchez-tello-de-meneses/1a/95/b3" 
 					target="_blank">Ver perfil.</A>
 			<A HREF="https://github.com/alexisstdm/Web_Mathematika" target="_blank">Contribuir en gitHub</A>

@@ -86,6 +86,35 @@
 			           esquema de Simpson de segundo grado.
 				</P>
 			</ARTICLE>
+			<ARTICLE>
+				<HEADER>
+					<HGROUP>
+						<H2>Minimizaci&oacute;n multidimensional de funciones por el m&eacute;todo de Powell</H2>
+						<H3><A class="negro" 
+							HREF="powell_optimization.html">Algoritmo de Powell</A></H3>
+					</HGROUP>
+				</HEADER>
+				<P>C&aacute;lculo del punto del espacio n-dimensional para el cual una funci&oacute;n 
+				tiene un m&iacute;nimo local.<BR/>
+				A partir de un conjunto de direcciones linealmente independientes que generan el espacio en 
+				el que se encuentra el dominio de la funci&oacute;n, de un conjunto de cotas superiores e inferiores 
+				de cardinalidad igual a la dimensi&oacute;n del espacio que definen el interior de una 
+				regi&oacute;n hiperc&uacute;bica,
+				y a partir de un punto inicial dentro de la regi&oacute;n anterior, 
+				el algoritmo de Powell devuelve el punto
+				de la regi&oacute;n hiperc&uacute;bica de b&uacute;squeda, 
+				para el cual la funci&oacute;n toma un m&iacute;nimo local.<BR/>
+				El algoritmo de Powell va buscando el m&iacute;nimo movi&eacute;ndose 
+				en las direcciones proporcionadas empezando por
+				el punto inicial proporcionado, una vez que nos hemos movido por las direcciones anteriores, 
+				sustituimos la direcci&oacute;n que ha proporcionado el 
+				mayor descenso por la direcci&oacute;n definida por el 
+				vector cuyo origen es el punto inicial y cuyo fin es el punto de llegada resultado de habernos movido
+				por el conjunto de direcciones.<BR/>
+				Este procedimiento se itera y nos movemos desde el punto de llegada por todas las direcciones del
+				nuevo conjunto de direcciones.
+				</P>
+			</ARTICLE>
 		</SECTION>
 		<FOOTER id="pie">
 			Alexis S&aacute;nchez Tello de Meneses. 

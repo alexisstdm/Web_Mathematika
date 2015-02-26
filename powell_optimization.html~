@@ -3,11 +3,11 @@
 	<HEAD>
 		<SCRIPT TYPE="text/javascript" SRC="javascript/evaluador_expresiones.js">
 		</SCRIPT>
-		<SCRIPT TYPE="text/javascript" SRC="javascript/biseccion.js">
+		<SCRIPT TYPE="text/javascript" SRC="javascript/powell.js">
 		</SCRIPT>
 		<meta charset="utf-8">
-		<meta name="description" content="Optimización de funciones por el método de Powell">
-		<meta name="keywords" content="Optimización , funcion, metodo, Powell, direcciones, conjugadas">
+		<meta name="description" content="Optimizaci&oacute;n de funciones por el m&eacute;todo de Powell">
+		<meta name="keywords" content="Optimizaci&oacute;n , funcion, metodo, Powell, direcciones, conjugadas">
 		<title>Mathematika: Metodo de Powell</title>
 		<link rel="stylesheet" href="estilos_index.css">
 	</HEAD>
@@ -37,11 +37,70 @@
 			<SECTION id="area_principal">
 				<SCRIPT TYPE="text/javascript">
 					function on_click_calcular(){
-						var funcion = document.formularioBiseccion.funcion.value;
-						var cotaInferior = new Number(document.formularioBiseccion.cotaInferior.value);
-						var cotaSuperior = new Number(document.formularioBiseccion.cotaSuperior.value);
-						document.formularioPowell.resultado.value = new String(
-							calculaCeros(funcion, cotaInferior, cotaSuperior));
+						//
+						//  Parseamos los l&iacute;mites entre los que buscar el m&iacute;nimo de la funci&oacute;n objetivo
+						var limitesSelect = document.getElementById("conjunto_cotas");
+						var limites = new Array();
+						
+						for (var i = 0; i < limitesSelect.length; i++){
+							var inicio = new Number(limitesSelect[i].text.substring(0,
+										limitesSelect[i].text.indexOf(" "))); 
+							var fin = new Number(limitesSelect[i].text.substring(
+									limitesSelect[i].text.indexOf(" "),limitesSelect[i].length));
+							var intervalo = new Intervalo(inicio, fin, true, true);
+							limites.push(intervalo);
+						}
+						
+						//
+						//  Parseamos la funcion objetivo
+						var funcionObjetivo = construyeFuncion(document.getElementById("funcion").value);
+
+						//
+						//  Parseamos el punto inicial
+						var anterior = 0;
+						var actual = 0;
+						var punto_inicial = new Array();
+						var punto_inicial_str = document.getElementById("puntoInicial").value;
+						
+						while (actual>=0){
+							actual = punto_inicial_str.indexOf(",", anterior);
+							if (actual >= 0){
+								punto_inicial.push(new Number(punto_inicial_str.substring(anterior, 
+											punto_inicial_str.indexOf(",", anterior))));
+								anterior = actual + 1;
+							}
+						}
+
+						if (punto_inicial_str != "")
+							punto_inicial.push(new Number(punto_inicial_str.substring(anterior, 
+											punto_inicial_str.length)));
+						
+						//
+						//  Parseamos las direcciones iniciales de b&uacute;squeda
+						var base = new Array();
+						for (var i = 0; i < limites.length; i++){
+							var vector_base = new Array();
+							for (var j = 0; j < limites.length; j++)
+								if (j==i) vector_base.push(1.0);
+								else vector_base.push(0.0);
+							base.push(vector_base);
+						}	
+						
+						var minimo = powell_algorithm(funcionObjetivo, punto_inicial, base, limites, 
+															0.001, 1000);
+						
+						//
+						//  Parseamos resultado
+						var conjunto_resultados = document.getElementById("resultado").options;
+						while (conjunto_resultados.length > 0)
+							conjunto_resultados.remove(0);
+						
+						for (var i = 0; i < minimo.length; i++){
+							var nueva_option = document.createElement("option");
+							nueva_option.text = new String(minimo[i]);
+							document.getElementById("resultado").add(nueva_option);
+						}
+
 					}
 
 					function on_click_agregar(){
@@ -64,7 +123,7 @@
 						<TR>
 							<TD>Funci&oacute;n :</TD>
 							<TD><INPUT TYPE="text" ID="funcion" 
-								NAME="funcion" MAXLENGTH="50" SIZE="50"></TD>
+								NAME="funcion" MAXLENGTH="132" SIZE="75"></TD>
 						</TR>
 					</TABLE>
 					<TABLE>
@@ -97,10 +156,30 @@
 								ONCLICK="on_click_agregar();"></TD>
 						</TR>
 					</TABLE>
+					<TABLE>
+						<TR>
+							<TD>
+								Punto inicial
+							</TD>
+							<TD>
+								<INPUT TYPE="text" ID="puntoInicial" NAME="puntoInicial" MAXLENGTH="40"
+								 SIZE="40">
+							</TD>
+						</TR>
+					</TABLE>
 					<BR><BR>
-					<INPUT TYPE="button" ID="calcular" NAME="calcular" VALUE="Calcular" 
-						ONCLICK="on_click_calcular();">
-					<INPUT TYPE="text" ID="resultado" NAME="resultado" MAXLENGTH="50" SIZE="50" DISABLED>
+					<TABLE>
+						<TR>
+							<TD>
+								<INPUT TYPE="button" ID="calcular" NAME="calcular" VALUE="Calcular" 
+								ONCLICK="on_click_calcular();">
+							</TD>
+							<TD>
+								<SELECT ID="resultado" SIZE=10 STYLE="width:350px">
+							    	</SELECT>
+							</TD>
+						</TR>
+					</TABLE>					
 				</FORM>
 				<BR>
 				<BR>
@@ -108,19 +187,23 @@
 			<ASIDE id="barra_lateral">
 				<DETAILS>
 					<SUMMARY>Ayuda</SUMMARY>
-						<BLOCKQUOTE>La funci&oacute;n para la que se calcula el cero ha de ser 
-							una expresi&oacute;n matem&aacute;tica
-							cuya variable independiente ser&aacute; la @x 	
-							(min&uacute;scula). Para hacer referencia a 
+						<BLOCKQUOTE>La funci&oacute;n para la que se calcula el m&iacute;nimo ha de ser 
+							una expresi&oacute;n matem&aacute;tica de javascript siendo precedidas
+							por el car&aacute;cter @. Por ejemplo Math.pow(@x,2.0)+Math.pow(@y,2.0). 	
+							Para hacer referencia a 
 							funciones est&aacute;ndar utilizaremos su nombre del 
 							m&oacute;dulo Math de javascript. Por ejemplo
 							Math.sin(@x) o Math.pow(@x,2.0).</BLOCKQUOTE>
-						<BLOCKQUOTE>La cota inferior es la parte inferior del intervalo de 
-							b&uacute;squeda del cero de la funci&oacute;n.</BLOCKQUOTE>
-						<BLOCKQUOTE>La cota superior es la parte superior del intervalo de 
-							b&uacute;squeda del cero de la funci&oacute;n.</BLOCKQUOTE>
-						<BLOCKQUOTE>Devolver&aacute; ERROR si no localiza ceros entre las 
-							cotas superior e inferior.</BLOCKQUOTE>
+						<BLOCKQUOTE>En la caja de cotas, se insertar&aacute;n 
+							los intervalos de b&uacute;squeda
+							para cada variable independiente, habr&aacute; tantos intervalos como 
+							variables independientes tenga la expresi&oacute;n 
+							matem&aacute;tica</BLOCKQUOTE>
+						<BLOCKQUOTE>En el campo de punto inicial insertaremos en punto de 
+							comienzo para el algoritmo, el punto tendr&aacute; tantos valores reales
+							como variables independientes haya. Las componentes del punto
+							deben estar separadas 
+							por el caracter coma (,)</BLOCKQUOTE>			
 				</DETAILS>
 				<BR>
 				<BR>
