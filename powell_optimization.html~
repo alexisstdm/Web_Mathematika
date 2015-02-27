@@ -37,8 +37,18 @@
 			<SECTION id="area_principal">
 				<SCRIPT TYPE="text/javascript">
 					function on_click_calcular(){
+						try {
 						//
-						//  Parseamos los l&iacute;mites entre los que buscar el m&iacute;nimo de la funci&oacute;n objetivo
+						//  Parseamos la funcion objetivo
+						var funcionEnv = construyeFuncion(document.getElementById("funcion").value);
+						var funcionObjetivo = funcionEnv["funcion"];
+						var num_variables = funcionEnv["NumeroVariables"];
+
+						if (num_variables == 0)
+						    throw "El número de variables no puede ser cero";
+
+						//
+						//  Parseamos los límites entre los que buscar el mínimo de la función objetivo
 						var limitesSelect = document.getElementById("conjunto_cotas");
 						var limites = new Array();
 						
@@ -48,13 +58,11 @@
 							var fin = new Number(limitesSelect[i].text.substring(
 									limitesSelect[i].text.indexOf(" "),limitesSelect[i].length));
 							var intervalo = new Intervalo(inicio, fin, true, true);
-							limites.push(intervalo);
+							limites.push(intervalo);						
 						}
 						
-						//
-						//  Parseamos la funcion objetivo
-						var funcionObjetivo = construyeFuncion(document.getElementById("funcion").value);
-
+						if (limites.length != num_variables)
+						    throw "El número de variables ha de ser igual al de límites";	
 						//
 						//  Parseamos el punto inicial
 						var anterior = 0;
@@ -75,6 +83,9 @@
 							punto_inicial.push(new Number(punto_inicial_str.substring(anterior, 
 											punto_inicial_str.length)));
 						
+						if (punto_inicial.length != num_variables)
+						    throw (new String("El número de coordenadas del punto no coincide el ")).
+						          concat("número de variables independientes");
 						//
 						//  Parseamos las direcciones iniciales de b&uacute;squeda
 						var base = new Array();
@@ -100,6 +111,10 @@
 							nueva_option.text = new String(minimo[i]);
 							document.getElementById("resultado").add(nueva_option);
 						}
+						} 
+						catch(err){
+							alert(err);
+						} 
 
 					}
 
@@ -189,6 +204,7 @@
 					<SUMMARY>Ayuda</SUMMARY>
 						<BLOCKQUOTE>La funci&oacute;n para la que se calcula el m&iacute;nimo ha de ser 
 							una expresi&oacute;n matem&aacute;tica de javascript siendo precedidas
+							las variables independientes
 							por el car&aacute;cter @. Por ejemplo Math.pow(@x,2.0)+Math.pow(@y,2.0). 	
 							Para hacer referencia a 
 							funciones est&aacute;ndar utilizaremos su nombre del 
@@ -199,7 +215,7 @@
 							para cada variable independiente, habr&aacute; tantos intervalos como 
 							variables independientes tenga la expresi&oacute;n 
 							matem&aacute;tica</BLOCKQUOTE>
-						<BLOCKQUOTE>En el campo de punto inicial insertaremos en punto de 
+						<BLOCKQUOTE>En el campo de punto inicial insertaremos el punto de 
 							comienzo para el algoritmo, el punto tendr&aacute; tantos valores reales
 							como variables independientes haya. Las componentes del punto
 							deben estar separadas 

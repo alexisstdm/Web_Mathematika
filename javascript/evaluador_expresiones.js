@@ -12,6 +12,7 @@ function evaluaExpresion(expresion, variable, valor){
 
 }
 
+
 function construyeFuncion(expresion){
 	var inicio = 0;
 	var variables_posicion = {};
@@ -45,8 +46,11 @@ function construyeFuncion(expresion){
 		}
 	}
 	
-	var funcion = new String("(function(Parametros){ return ");
-	funcion = funcion.concat(cuerpo_funcion, "; })");
-
-	return eval(funcion);
+	var funcion_str = new String("(function(Parametros){ return ");
+	funcion_str = funcion_str.concat(cuerpo_funcion, "; })");
+	
+	var funcion ={};
+	funcion["NumeroVariables"] = Object.keys(variables_posicion).length;
+	funcion["funcion"] = eval(funcion_str)
+	return funcion;
 }
